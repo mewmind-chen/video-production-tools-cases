@@ -1,0 +1,177 @@
+{
+  "id": "001-broker-stock-check",
+  "title": "MLCC & memory are on allocation. Here's how to tell if a broker's stock is real.",
+  "brand": "China Supply Chain Signal",
+  "series": "Buyer's Playbook",
+  "voice": "am_michael",
+  "speed": 1.08,
+  "scenes": [
+    {
+      "type": "title",
+      "visual": {
+        "kicker": "Buyer's Playbook",
+        "headline": "Is that broker's stock *actually real?*",
+        "sub": "5 checks before you pay."
+      },
+      "lines": [
+        {
+          "text": "4,000 pcs. In stock. Ships today.",
+          "say": "Four thousand pieces. In stock. Ships today."
+        },
+        "Real stock, or bait? Five checks before you pay a broker."
+      ],
+      "fx": "tapeMacro"
+    },
+    {
+      "type": "headline",
+      "source": "TrendForce MLCC Market Bulletin, Aug 12, 2026",
+      "visual": {
+        "kicker": "Why now",
+        "outlet": "TrendForce",
+        "date": "Aug 2026",
+        "text": "MLCC shortages, longer lead times and rising prices likely to persist into next quarter"
+      },
+      "lines": [
+        {
+          "text": "MLCC and memory are on allocation.",
+          "say": "M-L-C-C and memory are on allocation."
+        },
+        {
+          "text": "TrendForce expects MLCC shortages and price hikes to run into next quarter.",
+          "say": "TrendForce expects M-L-C-C shortages and price hikes to run into next quarter."
+        }
+      ],
+      "fx": "reelWide"
+    },
+    {
+      "type": "stat",
+      "source": "Fusion Worldwide, The Greensheet, Aug 2026",
+      "visual": {
+        "kicker": "Memory",
+        "value": 30,
+        "prefix": "<",
+        "suffix": "%",
+        "tone": "alert",
+        "label": "DDR5 server memory fulfillment for traditional OEMs",
+        "note": "Supply is going to hyperscalers first."
+      },
+      "lines": [
+        {
+          "text": "On DDR5 server memory, traditional OEMs reportedly get less than 30% of what they order.",
+          "say": "On D-D-R five server memory, traditional O-E-Ms reportedly get less than thirty percent of what they order."
+        }
+      ],
+      "fx": "reelAlert"
+    },
+    {
+      "type": "step",
+      "source": "Buyer guidance from Mouser, Electropages and ERAI",
+      "visual": {
+        "num": "1",
+        "total": "5",
+        "title": "Ask for a photo *taken today*",
+        "tag": "Catches: bait stock"
+      },
+      "lines": [
+        "One. Ask for a photo taken today, with the date and your company name next to the parts.",
+        "Bait stock usually stops right here."
+      ],
+      "fx": "photo"
+    },
+    {
+      "type": "step",
+      "source": "Buyer guidance from Mouser, Electropages and ERAI",
+      "visual": {
+        "num": "2",
+        "total": "5",
+        "title": "Check the *date code*",
+        "tag": "Catches: re-marked parts"
+      },
+      "lines": [
+        "Two. Check the date code. Reels should match, and the date should make sense for that part.",
+        "Impossible date codes often mean re-marked parts."
+      ],
+      "fx": "labelDC"
+    },
+    {
+      "type": "step",
+      "source": "Buyer guidance from Mouser, Electropages and ERAI",
+      "visual": {
+        "num": "3",
+        "total": "5",
+        "title": "Verify the *manufacturer label*",
+        "tag": "Catches: fake labels"
+      },
+      "lines": [
+        "Three. Check the manufacturer label. Part number, barcode and lot should match what the maker issued.",
+        "Not sure? Ask the manufacturer or an authorized distributor."
+      ],
+      "fx": "labelScan"
+    },
+    {
+      "type": "step",
+      "source": "Buyer guidance from Mouser, Electropages and ERAI",
+      "visual": {
+        "num": "4",
+        "total": "5",
+        "title": "Ask for *CoC + traceability*",
+        "tag": "Catches: no paper trail"
+      },
+      "lines": [
+        "Four. Ask for the certificate of conformance, and where the parts came from.",
+        "No paper trail is a red flag."
+      ],
+      "fx": "docs"
+    },
+    {
+      "type": "step",
+      "source": "Buyer guidance from Mouser, Electropages and ERAI",
+      "visual": {
+        "num": "5",
+        "total": "5",
+        "title": "Offer a *third-party test*",
+        "tag": "Real stock? The answer is yes.",
+        "tagTone": "ok"
+      },
+      "lines": [
+        "Five. Ask if they'll accept third-party testing, like X-ray at an independent lab.",
+        "A seller with real stock says yes."
+      ],
+      "fx": "teardown"
+    },
+    {
+      "type": "list",
+      "visual": {
+        "heading": "Before you pay:",
+        "items": [
+          "Photo taken *today*",
+          "Date code makes sense",
+          "Label & barcode match",
+          "CoC + traceability",
+          "Third-party test? *Yes*"
+        ],
+        "itemCueFrom": 99
+      },
+      "lines": [
+        "Five checks. Save this for your next urgent order."
+      ],
+      "hold": 1.4,
+      "fx": "verified"
+    },
+    {
+      "type": "cta",
+      "visual": {
+        "title": "China Supply Chain Signal",
+        "sub": "What's moving in China's electronics market, explained for buyers outside China.",
+        "handle": "Follow for weekly signals",
+        "note": "AI-generated voice and visuals."
+      },
+      "lines": [
+        "Follow for weekly signals from China's electronics supply chain."
+      ],
+      "hold": 1.6,
+      "fx": "turntable"
+    }
+  ],
+  "engine": "reel"
+}

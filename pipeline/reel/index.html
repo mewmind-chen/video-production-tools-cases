@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Signal Reel</title>
+<script type="importmap">
+{ "imports": {
+  "three": "/pipeline/node_modules/three/build/three.module.js",
+  "three/addons/": "/pipeline/node_modules/three/examples/jsm/"
+} }
+</script>
+<style>
+  @font-face { font-family: "Anton"; src: url(/pipeline/node_modules/@fontsource/anton/files/anton-latin-400-normal.woff2) format("woff2"); }
+  @font-face { font-family: "Archivo Black"; src: url(/pipeline/node_modules/@fontsource/archivo-black/files/archivo-black-latin-400-normal.woff2) format("woff2"); }
+  @font-face { font-family: "Instrument Serif"; font-style: italic; src: url(/pipeline/node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2) format("woff2"); }
+  @font-face { font-family: "JetBrains Mono"; font-weight: 500; src: url(/pipeline/node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2) format("woff2"); }
+  @font-face { font-family: "JetBrains Mono"; font-weight: 700; src: url(/pipeline/node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff2) format("woff2"); }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #0e0f0e; }
+  #out { display: block; width: 1080px; height: 1920px; }
+</style>
+</head>
+<body>
+<canvas id="out" width="1080" height="1920"></canvas>
+<script type="module">
+  // 载入本期的镜头脚本：?ep=episodes/<id>
+  const ep = new URLSearchParams(location.search).get('ep');
+  await Promise.all([
+    document.fonts.load('100px "Anton"'), document.fonts.load('100px "Archivo Black"'), document.fonts.load('italic 100px "Instrument Serif"'),
+    document.fonts.load('700 20px "JetBrains Mono"'), document.fonts.load('500 20px "JetBrains Mono"'), document.fonts.load('700 40px "Inter"'),
+  ]);
+  const mod = await import(`/${ep}/reel.js`);
+  await mod.default(window.__EPISODE__, window.__TIMELINE__);
+  window.renderAt(0);
+  window.__READY__ = true;
+</script>
+</body>
+</html>

@@ -1,3 +1,5 @@
+> **仓库导航**：内容生产闭环见 [`content-system/`](content-system/README.md)；制作工具见 [`pipeline/`](pipeline/README.md)；每期视频见 [`episodes/`](episodes/)。下面是最初的工具与案例调研报告，其中部分结论（如抖音定位、"代码渲染更适合知识类视频"）已被后续调研修正，见 `content-system/audience.md`。
+
 # "AI 解决真实工作问题"竖屏短视频：制作工具与真实案例深度调研
 
 > 调研日期：2026-10-16 ｜ 目标读者：中文竖屏短视频（9:16，抖音类平台）内容创作者

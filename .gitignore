@@ -1,0 +1,7 @@
+pipeline/models/
+pipeline/node_modules/
+episodes/*/build/
+*.pyc
+__pycache__/
+episodes/*/*.mp4
+episodes/_weekly/*.tmp

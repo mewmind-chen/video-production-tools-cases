@@ -1,0 +1,13 @@
+{
+  "name": "signal-video-pipeline",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@fontsource/anton": "^5.1.1",
+    "@fontsource/archivo-black": "^5.1.1",
+    "@fontsource/instrument-serif": "^5.1.1",
+    "@fontsource/jetbrains-mono": "^5.1.2",
+    "playwright": "1.56.1",
+    "three": "0.169.0"
+  }
+}
