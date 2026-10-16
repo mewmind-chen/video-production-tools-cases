@@ -37,7 +37,7 @@ export function createReel({ EP, TL }) {
   let TRANS = false;
   const RECT = {};
   const glA = document.createElement('canvas'); glA.width = W; glA.height = H;
-  const RA = new THREE.WebGLRenderer({ canvas: glA, antialias: true, alpha: true, preserveDrawingBuffer: true });
+  const RA = new THREE.WebGLRenderer({ canvas: glA, antialias: true, alpha: true, preserveDrawingBuffer: true, logarithmicDepthBuffer: !!EP.logDepth });
   RA.setPixelRatio(1); RA.setSize(W, H, false);
   const RP = new THREE.WebGLRenderer({ canvas: out, antialias: false, preserveDrawingBuffer: true });
   RP.setPixelRatio(1); RP.setSize(W, H, false); RP.outputColorSpace = THREE.LinearSRGBColorSpace;
@@ -282,7 +282,7 @@ export function createReel({ EP, TL }) {
       fn(t);
       if (!tr && s0 > 0 && t < s0 + 1 / FPS) FX.flash = Math.max(FX.flash, .08);
     }
-    subtitle(t);
+    if (EP.subtitles !== false) subtitle(t);   // 无旁白的片子在 episode.json 里写 "subtitles": false
     post(t, FX);
   }
 

@@ -5,3 +5,5 @@ episodes/*/build/
 __pycache__/
 episodes/*/*.mp4
 episodes/_weekly/*.tmp
+experiments/*/build/*
+!experiments/*/build/timeline.json

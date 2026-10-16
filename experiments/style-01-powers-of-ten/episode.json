@@ -1,0 +1,8 @@
+{
+  "id": "style-01-powers-of-ten",
+  "title": "Style test 01 — Powers of ten (no voice-over)",
+  "engine": "reel",
+  "subtitles": false,
+  "logDepth": true,
+  "scenes": [{ "type": "film" }]
+}

@@ -78,9 +78,16 @@ const out = opt('--out') || (range ? join(build, `range-${t0}-${t1}.mp4`) : join
 // 音频：配音 +（可选）本期配乐 build/music.wav；配乐被配音压低（侧链压缩），总响度 −14 LUFS
 const narr = join(build, 'narration.wav'), music = join(build, 'music.wav');
 const trim = ['-ss', String(t0), '-t', String(t1 - t0)];
-const audioArgs = [...trim, '-i', narr];
-let filter = '[1:a]loudnorm=I=-14:TP=-1.5:LRA=11[a]';
-if (existsSync(music)) {
+const audioArgs = [];
+let filter;
+if (!existsSync(narr)) {                     // 无旁白：只有配乐
+  audioArgs.push(...trim, '-i', music);
+  filter = '[1:a]loudnorm=I=-14:TP=-1.2:LRA=9[a]';
+} else if (!existsSync(music)) {
+  audioArgs.push(...trim, '-i', narr);
+  filter = '[1:a]loudnorm=I=-14:TP=-1.5:LRA=11[a]';
+} else {
+  audioArgs.push(...trim, '-i', narr);
   audioArgs.push(...trim, '-i', music);
   filter = '[1:a]asplit=2[v1][v2];[2:a]volume=0.55[m];[m][v1]sidechaincompress=threshold=0.02:ratio=6:attack=15:release=350:makeup=1[md];' +
            '[v2]acompressor=threshold=0.1:ratio=3:attack=5:release=80,volume=1.6[vc];[vc][md]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.2:LRA=9[a]';
