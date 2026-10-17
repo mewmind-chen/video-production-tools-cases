@@ -1,0 +1,110 @@
+{
+  "id": "006-playbook-reel-label",
+  "title": "Can you read this reel label? 4 checks before you pay",
+  "brand": "China Supply Chain Signal",
+  "series": "Buyer's Playbook",
+  "engine": "reel",
+  "format": "playbook",
+  "week": "WK 44",
+  "date": "FRI 30 OCT 2026",
+  "voice": "am_michael",
+  "speed": 1.08,
+  "scenes": [
+    {
+      "type": "open",
+      "visual": {
+        "bubble": { "from": "BROKER", "time": "10:12", "text": "Label photo attached. 100% original." },
+        "big": ["CAN YOU READ", "THIS LABEL?"],
+        "chips": ["4 CHECKS", "BEFORE YOU PAY"]
+      },
+      "lines": [
+        { "text": "Label photo attached. 100% original.", "say": "Label photo attached. One hundred percent original." },
+        "Can you read it? Four checks, before you pay."
+      ]
+    },
+    { "type": "intro", "lines": [ { "text": "I'm Leo. I trade components in Shenzhen.", "say": "I'm Leo. I trade components in Shenzhen." } ] },
+    {
+      "type": "why",
+      "visual": {
+        "kicker": "WHY NOW", "prefix": "+", "value": "25", "suffix": "%", "tone": "alert",
+        "label": "Suspect counterfeit & nonconforming parts reported to ERAI",
+        "note": "2024 VS 2023 · REPORTEDLY", "noteLine": 0,
+        "source": "ERAI DATA VIA TRUSTCOMPO"
+      },
+      "lines": [
+        { "text": "Suspect counterfeit & nonconforming parts reported to ERAI reportedly rose 25% in 2024.", "say": "Suspect counterfeit and nonconforming parts reported to E-R-A-I reportedly rose twenty-five percent in twenty twenty-four." }
+      ]
+    },
+    {
+      "type": "step",
+      "visual": {
+        "title": ["FIVE", "FIELDS."], "short": "ECIA fields",
+        "visual": {
+          "kind": "label", "title": "REEL LABEL · ECIA · EXAMPLE",
+          "rows": [["1P", "CC0805X7R106K250"], ["Q", "4000 PCS"], ["9D", "2541"], ["1T", "8K12A0473"]],
+          "locks": [0, 1, 2, 3], "lockLine": 0, "lockAt": 0.35
+        },
+        "tag": "ECIA EIGP 114", "tagTone": "ok", "note": "4L = COUNTRY OF ORIGIN"
+      },
+      "lines": [
+        { "text": "US and European labels follow ECIA: 1P is reportedly the part number, Q the quantity, 9D the date code, 1T the lot.", "say": "U-S and European labels follow E-C-I-A: one-P is reportedly the part number, Q the quantity, nine-D the date code, one-T the lot." },
+        { "text": "And 4L is the country of origin.", "say": "And four-L is the country of origin." }
+      ]
+    },
+    {
+      "type": "step",
+      "visual": {
+        "title": ["DATE", "CODE."], "short": "date code",
+        "visual": { "kind": "code", "code": "2541", "parts": [["25", "YEAR · 2025"], ["41", "WEEK · 41"]], "caption": "9D · YYWW · EXAMPLE", "partsLine": 0, "partsAt": 0.55 },
+        "tag": "CATCHES: RE-MARKED PARTS", "note": "CHECK THE LAST-TIME-BUY"
+      },
+      "lines": [
+        { "text": "The date code is usually year and week. 2541 is week 41 of 2025.", "say": "The date code is usually year and week. Two five four one is week forty-one of twenty twenty-five." },
+        "A date after the part's last-time-buy is a red flag."
+      ]
+    },
+    {
+      "type": "step",
+      "visual": {
+        "title": ["JAPAN", "DIFFERS."], "short": "EIAJ C-3",
+        "visual": {
+          "kind": "label", "title": "REEL LABEL · EIAJ C-3 · EXAMPLE",
+          "rows": [["<P/N>", "CC0805X7R106K250"], ["<QTY>", "4000 PCS"], ["<S/N>", "000041"], ["<L>", "8K12A0473"]],
+          "locks": [3], "lockLine": 1, "lockAt": 0.1
+        },
+        "tag": "NO D/C FIELD? CHECK THE LOT", "note": "ONE REEL WE CHECKED · EXAMPLE"
+      },
+      "lines": [
+        { "text": "Some Japanese makers use the EIAJ C-3 format. The reel we checked had no separate date code field.", "say": "Some Japanese makers use the E-I-A-J C-three format. The reel we checked had no separate date code field." },
+        "So match the lot number to the certificate of conformance instead."
+      ]
+    },
+    {
+      "type": "step",
+      "visual": {
+        "title": ["MATCH THE", "PARTS."], "short": "label vs parts",
+        "visual": {
+          "kind": "compare",
+          "good": { "label": "REAL", "items": ["P/N matches the parts", "Origin matches 4L", "Barcode scans to the text"], "line": 0, "at": 0.2 },
+          "bad": { "label": "RED FLAG", "items": ["P/N or origin don't match", "Barcode differs from text", "Odd fonts or spacing"], "line": 1, "at": 0 }
+        },
+        "tag": "CATCHES: RELABELED REELS", "note": "RED FLAGS, NOT PROOF"
+      },
+      "lines": [
+        "Then check the label against the parts: part number, origin, lot.",
+        { "text": "ERAI flags barcodes that don't match the text, and odd fonts or spacing.", "say": "E-R-A-I flags barcodes that don't match the text, and odd fonts or spacing." }
+      ]
+    },
+    {
+      "type": "recap",
+      "visual": { "heading": ["BEFORE", "YOU PAY."], "items": ["Read the 5 fields", "Date code makes sense", "No D/C? Match the lot", "Label matches the parts"], "stamp": "READ IT." },
+      "lines": [ "Four checks. Save this for your next broker quote." ]
+    },
+    {
+      "type": "outro",
+      "visual": { "sources": ["DigiKey label guide", "ERAI screening guidance", "Panasonic EIAJ C3 via Future Electronics", "ERAI 2024 data via TrustCompo"] },
+      "lines": [ "Buyer's Playbook. Every Friday. Sources in the caption." ],
+      "hold": 1.6
+    }
+  ]
+}
