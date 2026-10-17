@@ -11,5 +11,7 @@ base=https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v
 [ -s models/voices-v1.0.bin ]  || curl -sSL -o models/voices-v1.0.bin  "$base/voices-v1.0.bin"
 
 PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install --silent
+# 本机第一次运行需要下载 Chromium；云端环境已预装时设置了 PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD，会跳过
+[ -n "${PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD:-}" ] || npx playwright install chromium
 
 echo "setup done"
