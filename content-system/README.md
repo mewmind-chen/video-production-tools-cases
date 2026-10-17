@@ -41,7 +41,7 @@ Market Pulse 需要一线价格数据。拿不到可靠数据的那一周，换�
 | 栏目 | 格式说明 | 第一期 |
 |---|---|---|
 | Market Pulse | [`pipeline/formats/market-pulse/FORMAT.md`](../pipeline/formats/market-pulse/FORMAT.md) | `episodes/002-pulse-ddr5-spot` |
-| News Decoder | 待做（用第一个新闻选题搭） | — |
+| News Decoder | [`pipeline/formats/news-decoder/FORMAT.md`](../pipeline/formats/news-decoder/FORMAT.md) | `episodes/003-decoder-rare-earth-deadline` |
 | Buyer's Playbook | 待做（001 是单独制作的，没有套格式） | `episodes/001-broker-stock-check` |
 
 ## 每一步怎么做

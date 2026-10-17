@@ -1,0 +1,376 @@
+{
+  "id": "003-decoder-rare-earth-deadline",
+  "title": "The rare-earth deadline moved. Only two months.",
+  "brand": "China Supply Chain Signal",
+  "series": "News Decoder",
+  "engine": "reel",
+  "format": "news-decoder",
+  "week": "WK 43",
+  "date": "MON 19 OCT 2026",
+  "voice": "am_michael",
+  "speed": 1.08,
+  "scenes": [
+    {
+      "type": "open",
+      "visual": {
+        "kicker": "US–CHINA TRUCE · RARE EARTHS",
+        "from": [
+          "NOV",
+          "10"
+        ],
+        "to": [
+          "JAN",
+          "10"
+        ],
+        "fromYear": "2026",
+        "toYear": "2027",
+        "tail": [
+          "4 WEEKS BEFORE",
+          "CHINESE NEW YEAR."
+        ],
+        "source": "MOFCOM VIA MING PAO · 2026-09-28"
+      },
+      "lines": [
+        {
+          "text": "November 10 is no longer the date. January 10 is.",
+          "say": "November tenth is no longer the date. January tenth is."
+        },
+        {
+          "text": "Four weeks before Chinese New Year.",
+          "say": "Four weeks before Chinese New Year."
+        }
+      ]
+    },
+    {
+      "type": "intro",
+      "lines": [
+        {
+          "text": "I'm Leo. I trade components in Shenzhen.",
+          "say": "I'm Leo. I trade components in Shenzhen."
+        }
+      ]
+    },
+    {
+      "type": "what",
+      "visual": {
+        "kicker": "WHAT HAPPENED",
+        "stamp": [
+          "MOFCOM",
+          "28 SEP 2026"
+        ],
+        "headline": [
+          "US–CHINA TRUCE",
+          "EXTENDED TO",
+          "JAN 10, 2027."
+        ],
+        "from": "NOV 10",
+        "to": "JAN 10",
+        "delta": "+2 MONTHS",
+        "slideLine": 1,
+        "source": "MING PAO · NETEASE · UDN · 2026-09-28"
+      },
+      "lines": [
+        {
+          "text": "On September 28, Beijing confirmed the US–China truce now runs to January 10.",
+          "say": "On September twenty-eighth, Beijing confirmed the truce now runs to January tenth."
+        },
+        {
+          "text": "Just two months more.",
+          "say": "Just two months more."
+        }
+      ]
+    },
+    {
+      "type": "rules",
+      "visual": {
+        "kicker": "WHAT IT PAUSES. WHAT IT DOESN'T.",
+        "paused": {
+          "label": "PAUSED · OCT 2025 RULES",
+          "items": [
+            "MORE RARE EARTHS (INCL. HOLMIUM)",
+            "RARE-EARTH TECH & EQUIPMENT",
+            "0.1% RULE FOR FOREIGN-MADE GOODS"
+          ],
+          "line": 0
+        },
+        "active": {
+          "label": "NEVER PAUSED · APR 2025 RULES",
+          "tiles": [
+            [
+              "Sm",
+              "SAMARIUM"
+            ],
+            [
+              "Gd",
+              "GADOLINIUM"
+            ],
+            [
+              "Tb",
+              "TERBIUM"
+            ],
+            [
+              "Dy",
+              "DYSPROSIUM"
+            ],
+            [
+              "Lu",
+              "LUTETIUM"
+            ],
+            [
+              "Sc",
+              "SCANDIUM"
+            ],
+            [
+              "Y",
+              "YTTRIUM"
+            ]
+          ],
+          "line": 1,
+          "note": "EXPORT LICENSE · UP TO 45 WORKING DAYS",
+          "noteLine": 1,
+          "noteAt": 0.62
+        },
+        "source": "MOFCOM ANN. 18/2025, 57/2025, 70/2025 · REUTERS"
+      },
+      "lines": [
+        {
+          "text": "That truce is what paused China's October 2025 rare-earth rules.",
+          "say": "That truce is what paused China's October twenty twenty-five rare-earth rules."
+        },
+        {
+          "text": "The April rules never paused: seven rare earths still need a license. Up to 45 working days.",
+          "say": "But the April rules never paused. Seven rare earths still need a license. Up to forty-five working days."
+        }
+      ]
+    },
+    {
+      "type": "bom",
+      "visual": {
+        "kicker": "WHERE THEY SIT IN YOUR BOM",
+        "links": [
+          {
+            "syms": [
+              "Y"
+            ],
+            "part": "X7R MLCC",
+            "detail": "MOST COMMON RARE-EARTH DOPANT",
+            "icon": "mlcc",
+            "line": 0
+          },
+          {
+            "syms": [
+              "Dy",
+              "Tb"
+            ],
+            "part": "HIGH-TEMP MAGNETS",
+            "detail": "MOTORS · ACTUATORS",
+            "icon": "magnet",
+            "line": 1
+          }
+        ],
+        "note": "WHERE THEY'RE USED · NOT A SHORTAGE CLAIM",
+        "source": "PMC (BaTiO3 DOPING) · ARNOLD MAGNETICS"
+      },
+      "lines": [
+        {
+          "text": "Yttrium is the most common rare-earth dopant in X7R MLCCs.",
+          "say": "Yttrium is the most common rare-earth dopant in X-seven-R M-L-C-Cs."
+        },
+        {
+          "text": "Dysprosium and terbium: magnets that survive high heat, in motors.",
+          "say": "Dysprosium and terbium: magnets that survive high heat, in motors."
+        }
+      ]
+    },
+    {
+      "type": "date2",
+      "visual": {
+        "kicker": "SECOND DATE",
+        "date": [
+          "NOV",
+          "27"
+        ],
+        "tiles": [
+          [
+            "Ga",
+            "GALLIUM"
+          ],
+          [
+            "Ge",
+            "GERMANIUM"
+          ],
+          [
+            "Sb",
+            "ANTIMONY"
+          ]
+        ],
+        "label": "US-BOUND ONLY",
+        "note": [
+          "PAUSE ON CHINA'S BAN TO THE US ENDS",
+          "NO EXTENSION ANNOUNCED (AS OF 17 OCT)"
+        ],
+        "uses": "Ga → RF & LED CHIPS",
+        "usesLine": 1,
+        "source": "MOFCOM ANN. 46/2024 · FASTMARKETS · CSIS"
+      },
+      "lines": [
+        {
+          "text": "Second date: November 27. China's pause on its gallium, germanium and antimony ban for the US ends.",
+          "say": "Second date: November twenty-seventh. China's pause on its gallium, germanium and antimony ban for the U.S. ends."
+        },
+        {
+          "text": "No extension announced yet.",
+          "say": "No extension announced, yet."
+        }
+      ]
+    },
+    {
+      "type": "calendar",
+      "visual": {
+        "kicker": "THE CALENDAR TRAP",
+        "start": "2026-11-01",
+        "end": "2027-02-28",
+        "markers": [
+          {
+            "date": "2026-11-27",
+            "label": "Ga Ge Sb",
+            "line": 0
+          },
+          {
+            "date": "2027-01-10",
+            "label": "TRUCE ENDS",
+            "line": 0,
+            "at": 0.3
+          },
+          {
+            "date": "2027-02-06",
+            "label": "CNY",
+            "line": 0,
+            "at": 0.6,
+            "hot": true
+          }
+        ],
+        "bands": [
+          {
+            "from": "2027-01-29",
+            "to": "2027-02-20",
+            "label": "FACTORIES OFF 1–3 WKS",
+            "line": 0,
+            "at": 0.7,
+            "tone": "red"
+          },
+          {
+            "from": "2026-11-01",
+            "to": "2026-11-10",
+            "label": "LAST PRE-CNY ORDERS",
+            "line": 1,
+            "tone": "lime"
+          }
+        ],
+        "source": "SEKO LOGISTICS · EPIC SOURCING · CNY 2027 = 6 FEB"
+      },
+      "lines": [
+        {
+          "text": "Now the trap: factories close one to three weeks around Chinese New Year, February 6.",
+          "say": "Now the trap. Factories close one to three weeks around Chinese New Year, February sixth."
+        },
+        {
+          "text": "That's why experienced importers place their last pre-holiday orders in early November.",
+          "say": "That's why experienced importers place their last pre-holiday orders in early November."
+        }
+      ]
+    },
+    {
+      "type": "actions",
+      "visual": {
+        "title": [
+          "WHAT TO DO",
+          "THIS WEEK."
+        ],
+        "items": [
+          {
+            "tag": "ORDER",
+            "icon": "clock",
+            "head": "Pre-holiday orders:",
+            "sub": "plan them now, place them by early November.",
+            "line": 0
+          },
+          {
+            "tag": "ASK",
+            "icon": "lens",
+            "head": "Ask your supplier:",
+            "sub": "does any material need a Chinese export license?",
+            "line": 1
+          },
+          {
+            "tag": "US-BOUND",
+            "icon": "stairs",
+            "head": "Shipping to the US?",
+            "sub": "Watch November 27.",
+            "line": 2
+          }
+        ]
+      },
+      "lines": [
+        {
+          "text": "Plan your pre-holiday orders now. Place them by early November.",
+          "say": "Plan your pre-holiday orders now. Place them by early November."
+        },
+        {
+          "text": "Ask suppliers if any material needs a Chinese export license.",
+          "say": "Ask your suppliers if any material needs a Chinese export license."
+        },
+        {
+          "text": "And if you ship to the US, watch November 27.",
+          "say": "And if you ship to the U.S., watch November twenty-seventh."
+        }
+      ]
+    },
+    {
+      "type": "unknown",
+      "visual": {
+        "kicker": "WHAT WE DON'T KNOW",
+        "question": [
+          "WHAT HAPPENS",
+          "ON JAN 10?"
+        ],
+        "answer": "NO OFFICIAL WORD.",
+        "watch": [
+          "WATCH",
+          "APEC · SHENZHEN",
+          "NOV 18–19"
+        ],
+        "watchLine": 1,
+        "source": "SCMP · FN NEWS"
+      },
+      "lines": [
+        {
+          "text": "What happens on January 10? Nobody knows yet.",
+          "say": "What happens on January tenth? Nobody knows, yet."
+        },
+        {
+          "text": "Watch APEC in Shenzhen, November 18 and 19.",
+          "say": "Watch APEC in Shenzhen, November eighteenth and nineteenth."
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "visual": {
+        "sources": [
+          "MOFCOM via Ming Pao / NetEase, 2026-09-28",
+          "MOFCOM Ann. 18/2025, 57/2025, 70/2025, 46/2024",
+          "Reuters · Fastmarkets · CSIS · PMC",
+          "SEKO Logistics · Epic Sourcing · SCMP"
+        ]
+      },
+      "lines": [
+        {
+          "text": "News Decoder. Every Monday. Sources in the caption.",
+          "say": "News Decoder. Every Monday. Sources are in the caption."
+        }
+      ],
+      "hold": 1.6
+    }
+  ]
+}
