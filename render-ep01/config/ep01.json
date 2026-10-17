@@ -1,0 +1,42 @@
+{
+  "episode": "ep01",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "voice": { "name": "zh-CN-YunxiNeural", "rate": "+12%", "pitch": "+0Hz", "volume": "+0%" },
+  "account": { "name": "陈工研究 Ai", "likes": 4, "mutual": 0, "following": 0, "fans": 0, "visitors": 2,
+    "bio": ["我不一定会，但我会研究", "专门折腾 AI、软件和工作效率", "把真实问题一个个解决掉"] },
+  "progress": { "current": 0, "target": 1000 },
+  "slogan": "我不一定会，但我会研究",
+  "shots": [
+    { "id": 1, "name": "hook", "lead": 0.1, "tail": 0.15, "segments": [
+      { "text": "0 粉丝，4 个赞。", "sub": "【0 粉丝】，4 个赞", "pauseAfter": 0.25 },
+      { "text": "还有 2 个新访客……", "sub": "还有 2 个新访客……", "pauseAfter": 0.12 },
+      { "text": "一个都没留下。", "sub": "一个都【没留下】" }
+    ]},
+    { "id": 2, "name": "task", "lead": 0.15, "tail": 0.2, "segments": [
+      { "text": "抖音给我派了个任务：粉丝突破一千。", "sub": "抖音给我派了个任务\n【粉丝突破 1000】", "pauseAfter": 0.25 },
+      { "text": "行，那就当个课题来研究。", "sub": "行，那就当个【课题】来研究" }
+    ]},
+    { "id": 3, "name": "ai", "lead": 0.2, "tail": 0.1, "segments": [
+      { "text": "先问 AI。", "sub": "先问 AI", "pauseAfter": 0.15 },
+      { "text": "它一口气给了我十八条。", "sub": "它一口气给了我【18 条】", "pauseAfter": 0.3 },
+      { "text": "第三条：真人出镜。", "sub": "第三条：【真人出镜】", "pauseAfter": 0.75 },
+      { "text": "行，出就出。", "sub": "行，出就出" }
+    ]},
+    { "id": 4, "name": "fail", "lead": 1.35, "tail": 0.2, "segments": [
+      { "text": "家人们！", "sub": "家人们——", "pitch": "+28Hz", "rate": "-5%", "crack": true, "pauseAfter": 1.25 },
+      { "text": "……算了，这不是我。", "sub": "……算了，这不是我" }
+    ]},
+    { "id": 5, "name": "report", "lead": 0.3, "tail": 0.3, "segments": [
+      { "text": "研究结论：表演，我不行。", "sub": "研究结论：表演，我【不行】", "pauseAfter": 0.4 },
+      { "text": "折腾，我还行。", "sub": "折腾，我【还行】" }
+    ]},
+    { "id": 6, "name": "cta", "lead": 0.2, "tail": 1.7, "segments": [
+      { "text": "你被 AI、软件卡住的问题，扔评论区。", "sub": "你被 AI、软件卡住的问题\n扔【评论区】", "pauseAfter": 0.1 },
+      { "text": "我来研究。", "sub": "我来研究", "pauseAfter": 0.45 },
+      { "text": "我不一定会，", "sub": "", "pauseAfter": 0.12 },
+      { "text": "但我会研究。", "sub": "" }
+    ]}
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "ep01-fans-1000",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "tts": "python3 scripts/tts.py && python3 scripts/cues.py",
+    "mix": "python3 scripts/mix.py",
+    "frames": "node scripts/render.mjs",
+    "check": "bash scripts/check.sh",
+    "render": "npm run tts && npm run mix && npm run frames && npm run check"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "^5.1.0",
+    "@fontsource/noto-sans-sc": "^5.1.0",
+    "@fontsource/zcool-kuaile": "^5.1.0",
+    "gsap": "^3.12.5",
+    "playwright": "^1.56.1"
+  },
+  "private": true,
+  "type": "module"
+}

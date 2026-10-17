@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../node_modules/@fontsource/noto-sans-sc/400.css">
+<link rel="stylesheet" href="../node_modules/@fontsource/noto-sans-sc/700.css">
+<link rel="stylesheet" href="../node_modules/@fontsource/noto-sans-sc/900.css">
+<link rel="stylesheet" href="../node_modules/@fontsource/jetbrains-mono/500.css">
+<link rel="stylesheet" href="../node_modules/@fontsource/jetbrains-mono/700.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+<div id="scene">
+
+  <!-- ① 主页（按真实主页重建，数据是真实的） -->
+  <div id="pf" class="sc"><div id="page">
+    <div class="pf-head">
+      <div class="pf-status"><span>16:57</span><span class="sig"><i></i><i></i><i></i><i></i> 5G <b>44</b></span></div>
+      <div class="pill" style="left:40px;top:192px;width:276px">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7"/><path d="M19 8v6M16 11h6"/></svg>添加好友</div>
+      <div class="pill" id="pillVisit" style="left:594px;top:192px;width:224px">
+        <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3.5"/><circle cx="16" cy="8" r="3.5"/><path d="M1.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6M13 14.3c.9-.2 2-.3 3-.3 3.6 0 6.5 2.4 6.5 6"/></svg>新访客 <b id="visitN"></b></div>
+      <div class="pill round" style="left:844px;top:192px"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></div>
+      <div class="pill round" style="left:953px;top:192px"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div>
+      <div class="pf-avatar"><img src="../assets/img/avatar.png" alt=""></div>
+      <div class="pf-name" id="pfName"></div>
+      <div class="pf-ai">创建 AI 形象 ›</div>
+    </div>
+    <div class="pf-sheet">
+      <div class="stats">
+        <div class="st" style="left:75px"><b id="nLikes"></b><span>获赞</span></div>
+        <div class="st" style="left:218px"><b id="nMutual"></b><span>互关</span></div>
+        <div class="st" style="left:359px"><b id="nFollowing"></b><span>关注</span></div>
+        <div class="st" style="left:501px"><b id="nFans"></b><span>粉丝</span></div>
+      </div>
+      <div class="edit">编辑主页</div>
+      <div class="bio" id="bio"></div>
+      <div class="tools"><span>我的订单</span><span>我的小程序</span><span>全部功能</span></div>
+      <div class="banner" id="banner">
+        <div class="bn-img"><div>粉丝500→1000</div><div>再到9000→5000</div><div>然后是10000</div></div>
+        <div class="bn-t">粉丝突破1000加油</div>
+        <div class="bn-s">一起参与话题吧</div>
+        <div class="bn-btn" id="bnBtn"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.5" fill="#fff"/><path d="M9 7l1.5-2.5h3L15 7"/></svg>去发布</div>
+        <div class="bn-x">×</div>
+      </div>
+      <div class="tabs"><b>作品 ▾</b><span>日常</span><span>收藏</span><span>喜欢</span></div>
+      <div class="grid"><img src="../assets/img/thumb1.png"><img src="../assets/img/thumb2.png"><img src="../assets/img/thumb3.png"></div>
+    </div>
+    <svg id="marks" viewBox="0 0 1080 2120">
+      <path id="mkFans" class="mk"/><path id="mkLikes" class="mk"/><path id="mkVisit" class="mk"/><path id="mkBanner" class="mk"/>
+      <g id="walkers"></g>
+    </svg>
+    <div id="tapRip"></div>
+  </div></div>
+
+  <!-- 卡片展开 -->
+  <div id="flip"></div>
+
+  <!-- ② 研究课题标题卡 -->
+  <div id="lab" class="sc dark">
+    <div class="gridbg"></div>
+    <div class="lab-wm mono">001</div>
+    <div class="lab-in">
+      <div class="mono y" id="labCode"></div>
+      <div class="lab-k" id="labK">研究课题</div>
+      <div class="lab-h" id="labH">粉丝突破</div>
+      <div class="lab-n" id="labN"><span class="n0">0</span><span class="arr">→</span><span class="n1" id="labTarget">1000</span></div>
+      <div class="lab-rows" id="labRows"></div>
+    </div>
+  </div>
+
+  <!-- ③ AI 对话 -->
+  <div id="ai" class="sc dark">
+    <div class="ai-status"><span>23:48</span><span>5G ▮▮▮</span></div>
+    <div class="ai-head"><span class="back">‹</span>AI 助手<span class="chip">深度思考</span></div>
+    <div class="ai-body"><div id="aiScroll">
+      <div class="bub-u" id="bubU">怎么从 0 粉涨到 1000 粉？</div>
+      <div class="ai-intro" id="aiIntro">好的！给你 18 条建议：</div>
+      <ol id="aiList"></ol>
+      <div id="hl"></div>
+    </div></div>
+    <div class="ai-input" id="aiInput"><span id="aiInputText"></span><span class="caret" id="aiCaret"></span><b class="send">↑</b></div>
+    <div class="kbd" id="kbd"></div>
+  </div>
+
+  <!-- ④ 前置相机 -->
+  <div id="cam" class="sc">
+    <div class="cam-prev" id="camPrev"><img src="../assets/img/cam.jpg" alt=""><div id="slices"></div></div>
+    <div class="cam-top"><span>×</span><span class="q">1080P · 30</span><span>⟲</span></div>
+    <div class="rec" id="rec"><i></i>REC <span id="recT">00:00</span></div>
+    <div class="cd" id="cd"></div>
+    <div class="cam-modes"><span>照片</span><b>视频</b><span>直播</span></div>
+    <div class="shutter" id="shutter"><i></i></div>
+  </div>
+
+  <!-- ⑤ 实验报告 -->
+  <div id="rep" class="sc dark">
+    <div class="gridbg"></div>
+    <div class="mono y rep-code">EXPERIMENT REPORT #001</div>
+    <div class="rep-t">研究结论</div>
+    <div class="rep-row" style="top:640px"><div class="rl">表演能力</div><div class="track"><div class="fill red" id="bar1"></div></div><div class="rv red" id="v1"></div></div>
+    <div class="rep-row" style="top:900px"><div class="rl">折腾能力</div><div class="track"><div class="fill yl" id="bar2"></div></div><div class="rv yl" id="v2"></div></div>
+    <div class="rep-foot mono" id="repFoot">* 样本量：1（我自己）　置信度：很高</div>
+  </div>
+
+  <!-- ⑥ 你出题，我研究 -->
+  <div id="cta" class="sc dark">
+    <div class="gridbg"></div>
+    <div class="cta-t"><div id="ct1">你出题</div><div id="ct2" class="y">我研究</div></div>
+    <div class="cta-chip" id="ctaChip">评论区点单</div>
+    <div class="composer" id="composer"><div class="me">你</div><div class="cin"><span class="ex">例：</span><span id="exText"></span><span class="caret"></span></div></div>
+    <div class="cta-fmt" id="ctaFmt">格式：卡在哪 + 想要什么结果</div>
+  </div>
+
+  <!-- ⑦ 结尾卡 -->
+  <div id="end" class="sc dark">
+    <div class="gridbg"></div>
+    <svg id="ring" viewBox="0 0 440 440"><circle cx="220" cy="220" r="204" fill="none" stroke="#FFD43B" stroke-width="6" stroke-dasharray="18 14"/></svg>
+    <div class="end-av"><img src="../assets/img/avatar.png" alt=""></div>
+    <div class="end-name" id="endName"></div>
+    <div class="end-s"><div id="es1">我不一定会，</div><div id="es2" class="y">但我会研究</div></div>
+    <div class="end-prog"><div class="ep-l"><span>粉丝</span><b id="epV"></b></div><div class="ep-track"><div class="ep-fill"></div></div><div class="ep-s" id="epS">第 1 位关注者，会是你吗？</div></div>
+    <div class="follow" id="follow">＋ 关注</div>
+  </div>
+
+  <div id="black"></div>
+</div>
+
+<!-- 信息层 -->
+<div id="ov">
+  <div id="chipReal"><i></i>真实数据 · DAY 1</div>
+  <div id="hud"><div id="hudRed"></div><span class="hk">课题 #001</span><span class="hl">粉丝</span><b id="hudV"></b><div class="ht"><div class="hf"></div></div><div id="hudTag">（非常稳定）</div></div>
+  <div id="big18"><b>18</b><span>条</span></div>
+  <div id="toast"><div class="ic">!</div><div class="tt">录制已中断</div><div class="ts">原因：检测到播音腔</div></div>
+  <div id="stamp">研究翻车 ×1</div>
+  <svg id="arrow" viewBox="0 0 1080 1920"><g id="arrowG" opacity="0">
+    <path d="M 640 1190 C 760 1190, 860 1220, 900 1290" fill="none" stroke="#000" stroke-width="28" stroke-linecap="round"/>
+    <path d="M 640 1190 C 760 1190, 860 1220, 900 1290" fill="none" stroke="#FFD43B" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 858 1268 L 902 1296 L 920 1246" fill="none" stroke="#000" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 858 1268 L 902 1296 L 920 1246" fill="none" stroke="#FFD43B" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  </g></svg>
+  <div id="sub"></div>
+</div>
+<canvas id="grain" width="540" height="960"></canvas>
+<div id="vig"></div>
+</div>
+<div id="fontWarm"></div>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
