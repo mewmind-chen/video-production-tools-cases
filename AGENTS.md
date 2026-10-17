@@ -49,6 +49,7 @@
 
 - 需要：Node 22、Python 3、ffmpeg、Chromium（Playwright）。第一次运行 `bash pipeline/setup.sh`（下载 Kokoro 模型，约 340 MB）。
 - 没有 GPU 也能跑，3D 场景会慢一些。
+- 渲染要启动 Chromium。如果沙箱拦住了浏览器，不要绕过沙箱，告诉用户在终端自己运行 `bash pipeline/make.sh episodes/<id>`。
 
 ## Git
 

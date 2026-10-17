@@ -10,4 +10,4 @@
 | three.js 0.169.0 | https://threejs.org | MIT |
 | Kokoro TTS 模型 | https://github.com/thewh1teagle/kokoro-onnx | Apache-2.0 |
 | Anton、Archivo Black、Instrument Serif、JetBrains Mono（经 @fontsource） | Google Fonts | OFL |
-| Inter | https://rsms.me/inter | OFL |
+| Inter（经 @fontsource/inter） | https://rsms.me/inter | OFL |
