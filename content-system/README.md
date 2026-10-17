@@ -33,6 +33,14 @@
 
 Market Pulse 需要一线价格数据。拿不到可靠数据的那一周，换成一条 Buyer's Playbook 或一条"中国供应链 101"科普，**不编数据**。
 
+**固定格式**：每个栏目有一套固定的结构和画面，每期只改 `episode.json` 里的数据和台词。已完成的格式：
+
+| 栏目 | 格式说明 | 第一期 |
+|---|---|---|
+| Market Pulse | [`pipeline/formats/market-pulse/FORMAT.md`](../pipeline/formats/market-pulse/FORMAT.md) | `episodes/002-pulse-ddr5-spot` |
+| News Decoder | 待做（用第一个新闻选题搭） | — |
+| Buyer's Playbook | 待做（001 是单独制作的，没有套格式） | `episodes/001-broker-stock-check` |
+
 ## 每一步怎么做
 
 开一个 Claude Code 会话，进入本仓库，按下面说就行。每一步的产出都存进 `episodes/<编号>/`。

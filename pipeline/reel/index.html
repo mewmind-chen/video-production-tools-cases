@@ -22,13 +22,14 @@
 <body>
 <canvas id="out" width="1080" height="1920"></canvas>
 <script type="module">
-  // 载入本期的镜头脚本：?ep=episodes/<id>
+  // 载入本期的镜头脚本：?ep=episodes/<id>。episode.json 写了 "format" 的用栏目固定格式（pipeline/formats/<format>/format.js）
   const ep = new URLSearchParams(location.search).get('ep');
+  const fmt = window.__EPISODE__.format;
   await Promise.all([
     document.fonts.load('100px "Anton"'), document.fonts.load('100px "Archivo Black"'), document.fonts.load('italic 100px "Instrument Serif"'),
     document.fonts.load('700 20px "JetBrains Mono"'), document.fonts.load('500 20px "JetBrains Mono"'), document.fonts.load('700 40px "Inter"'),
   ]);
-  const mod = await import(`/${ep}/reel.js`);
+  const mod = await import(fmt ? `/pipeline/formats/${fmt}/format.js` : `/${ep}/reel.js`);
   await mod.default(window.__EPISODE__, window.__TIMELINE__);
   window.renderAt(0);
   window.__READY__ = true;

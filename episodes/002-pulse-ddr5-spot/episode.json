@@ -1,0 +1,344 @@
+{
+  "id": "002-pulse-ddr5-spot",
+  "title": "¥200 → ¥1,400: what Shenzhen's memory market is telling buyers",
+  "brand": "China Supply Chain Signal",
+  "series": "Market Pulse",
+  "engine": "reel",
+  "format": "market-pulse",
+  "week": "WK 42",
+  "date": "WED 21 OCT 2026",
+  "voice": "am_michael",
+  "speed": 1.08,
+  "ticker": [
+    [
+      "DDR5 16GB MODULE · HQB",
+      "¥1,400+",
+      "up"
+    ],
+    [
+      "DRAM CONTRACT Q4",
+      "+10–15% F",
+      "up"
+    ],
+    [
+      "NAND CONTRACT Q4",
+      "+15–20% F",
+      "up"
+    ],
+    [
+      "DDR4 16GB MODULE · HQB",
+      "¥600+",
+      "up"
+    ],
+    [
+      "DRAM CONTRACT Q3",
+      "+13–18% F",
+      "up"
+    ]
+  ],
+  "scenes": [
+    {
+      "type": "open",
+      "visual": {
+        "kicker": "HUAQIANGBEI, SHENZHEN · CHEAPEST QUOTE",
+        "product": "dimm",
+        "productLabel": "16GB DDR5 MODULE",
+        "prefix": "¥",
+        "from": 200,
+        "to": 1400,
+        "suffix": "+",
+        "after": [
+          "SAME STICK.",
+          "ONE YEAR."
+        ],
+        "source": "21ST CENTURY BUSINESS HERALD · SHENZHEN TV · 2026-10-07"
+      },
+      "lines": [
+        {
+          "text": "¥200. Now ¥1,400.",
+          "say": "Two hundred yuan. Now, fourteen hundred."
+        },
+        {
+          "text": "Same 16GB stick of DDR5. One year apart.",
+          "say": "Same sixteen gig stick of D-D-R five. One year apart."
+        }
+      ]
+    },
+    {
+      "type": "ident",
+      "visual": {
+        "tagline": "WHAT CHINA'S PARTS MARKET IS SAYING"
+      },
+      "lines": [
+        {
+          "text": "This is Market Pulse: what Shenzhen is telling buyers this week.",
+          "say": "This is Market Pulse. What Shenzhen is telling buyers, this week."
+        }
+      ]
+    },
+    {
+      "type": "spot",
+      "visual": {
+        "title": [
+          "SPOT",
+          "SWINGS."
+        ],
+        "unit": "¥",
+        "yMax": 1600,
+        "yStep": 400,
+        "months": [
+          "O",
+          "N",
+          "D",
+          "J",
+          "F",
+          "M",
+          "A",
+          "M",
+          "J",
+          "J",
+          "A",
+          "S",
+          "O"
+        ],
+        "years": [
+          [
+            0,
+            "2025"
+          ],
+          [
+            3,
+            "2026"
+          ]
+        ],
+        "points": [
+          {
+            "x": 0,
+            "v": 200,
+            "label": "¥200+",
+            "line": 0
+          },
+          {
+            "x": 8.6,
+            "v": 1500,
+            "label": "¥1,500",
+            "line": 2,
+            "labelPos": "left"
+          },
+          {
+            "x": 9.4,
+            "v": 1080,
+            "v2": 1200,
+            "label": "¥1,080–1,200",
+            "line": 2
+          },
+          {
+            "x": 12,
+            "v": 1400,
+            "label": "¥1,400+",
+            "line": 2,
+            "at": 0.55,
+            "hot": true
+          }
+        ],
+        "events": [
+          {
+            "x": 5,
+            "label": [
+              "−30% IN A WEEK",
+              "SOME MODELS"
+            ],
+            "line": 1
+          }
+        ],
+        "note": "REPORTED QUOTES, 16GB DDR5 MODULE · NOT A PRICE INDEX",
+        "source": "10JQKA 2026-03-30 · IT HOME 2026-07 · 21ST CENTURY BUSINESS HERALD 2026-10-07"
+      },
+      "lines": [
+        {
+          "text": "But spot prices don't move in a straight line.",
+          "say": "But spot prices don't move in a straight line."
+        },
+        {
+          "text": "In March, some sellers reportedly cut nearly 30% in a week.",
+          "say": "In March, some sellers reportedly cut nearly thirty percent, in a week."
+        },
+        {
+          "text": "In July it dipped to about ¥1,100. Now it's back above ¥1,400.",
+          "say": "In July, it dipped to about eleven hundred. Now, it's back above fourteen hundred."
+        }
+      ]
+    },
+    {
+      "type": "contract",
+      "visual": {
+        "title": [
+          "CONTRACT:",
+          "ONLY UP."
+        ],
+        "kicker": "CONVENTIONAL DRAM CONTRACT PRICE · QoQ",
+        "bars": [
+          {
+            "label": "Q1",
+            "lo": 93,
+            "hi": 98,
+            "line": 1
+          },
+          {
+            "label": "Q2",
+            "lo": 58,
+            "hi": 63,
+            "line": 1,
+            "at": 0.5
+          },
+          {
+            "label": "Q3",
+            "lo": 13,
+            "hi": 18,
+            "forecast": true,
+            "line": 2
+          },
+          {
+            "label": "Q4",
+            "lo": 10,
+            "hi": 15,
+            "forecast": true,
+            "line": 2,
+            "at": 0.45
+          }
+        ],
+        "quote": "MEMORY PRICES ARE COOLING",
+        "quoteLine": 3,
+        "stairsLine": 3,
+        "base": "Q4 '25 = 100",
+        "finalLine": 4,
+        "final": "≈4×",
+        "note": "F = FORECAST · STAIRS: RANGE MIDPOINTS COMPOUNDED, ILLUSTRATIVE",
+        "source": "TRENDFORCE · 2026-03-31, 2026-07-03, 2026-09-30",
+        "stairsAt": 0.45
+      },
+      "lines": [
+        {
+          "text": "Contract prices this year? Only up.",
+          "say": "Contract prices, this year? Only up."
+        },
+        {
+          "text": "TrendForce: Q1, up ~95%. Q2, ~60%.",
+          "say": "TrendForce: Q1, up about ninety-five percent. Q2, about sixty."
+        },
+        {
+          "text": "Q3, ~15%. Q4, 10 to 15% forecast.",
+          "say": "Q3, about fifteen. Q4, ten to fifteen, forecast."
+        },
+        {
+          "text": "So 'cooling' means smaller increases. Not lower prices.",
+          "say": "So, cooling means smaller increases. Not lower prices."
+        },
+        {
+          "text": "Stack them up: 100 last December heads for about 400.",
+          "say": "Stack them up. A hundred last December, heads for about four hundred."
+        }
+      ]
+    },
+    {
+      "type": "street",
+      "visual": {
+        "label": "SELLER'S VIEW · NOT A FORECAST",
+        "quote": [
+          "This cycle could",
+          "run to 2029–2030."
+        ],
+        "attribution": "HUAQIANGBEI MERCHANTS, VIA 21ST CENTURY BUSINESS HERALD · 2026-10",
+        "years": [
+          2026,
+          2027,
+          2028,
+          2029,
+          2030
+        ],
+        "range": [
+          2029,
+          2030
+        ]
+      },
+      "lines": [
+        {
+          "text": "Sellers in Shenzhen say this cycle could run to 2029 or 2030.",
+          "say": "Sellers in Shenzhen say this cycle could run to twenty twenty-nine, or twenty thirty."
+        },
+        {
+          "text": "That's their view, not a forecast.",
+          "say": "That's their view. Not a forecast."
+        }
+      ]
+    },
+    {
+      "type": "actions",
+      "visual": {
+        "title": [
+          "WHAT TO DO",
+          "THIS WEEK."
+        ],
+        "items": [
+          {
+            "tag": "CONTRACT",
+            "icon": "stairs",
+            "head": "Budget +10–15%",
+            "sub": "for this quarter.",
+            "line": 1
+          },
+          {
+            "tag": "SPOT",
+            "icon": "clock",
+            "head": "A dip is a window,",
+            "sub": "not a trend. Get quote validity in writing.",
+            "line": 2
+          },
+          {
+            "tag": "BROKERS",
+            "icon": "lens",
+            "head": "Hot markets attract fakes.",
+            "sub": "Friday: 5 checks before you pay.",
+            "line": 3
+          }
+        ]
+      },
+      "lines": [
+        {
+          "text": "So, three things this week.",
+          "say": "So. Three things, this week."
+        },
+        {
+          "text": "Buy on contract? Budget another 10 to 15% this quarter.",
+          "say": "Buy on contract? Budget another ten to fifteen percent, this quarter."
+        },
+        {
+          "text": "Buy spot? A dip is a window, not a trend. Get validity in writing.",
+          "say": "Buy spot? A dip is a window, not a trend. Get the validity in writing."
+        },
+        {
+          "text": "And hot markets attract fakes. Friday: five checks before you pay a broker.",
+          "say": "And hot markets attract fakes. On Friday: five checks, before you pay a broker."
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "visual": {
+        "sources": [
+          "21st Century Business Herald, 2026-10-08",
+          "Sina Finance / Eastmoney, 2026-10-08",
+          "IT Home, 2026-07 · 10jqka, 2026-03-30",
+          "TrendForce, 2026-03-31 / 07-03 / 09-30"
+        ]
+      },
+      "lines": [
+        {
+          "text": "Market Pulse. Every Wednesday. Sources in the caption.",
+          "say": "Market Pulse. Every Wednesday. Sources are in the caption."
+        }
+      ],
+      "hold": 1.2
+    }
+  ]
+}
