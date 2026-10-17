@@ -1,4 +1,4 @@
-# 在自己电脑上用 Codex 做视频
+# 在自己电脑上用 Codex 桌面端做视频
 
 Codex 会自动读仓库根目录的 [`AGENTS.md`](../AGENTS.md)，里面写了每期怎么做、哪些代码不能动、事实红线。你只需要装好环境，然后用中文告诉它做哪一期。
 
@@ -50,13 +50,15 @@ git pull && bash pipeline/setup.sh
 
 `setup.sh` 会在 `pipeline/.venv` 建一个 Python 3.12 的独立环境装配音库（系统是 Python 3.14 时配音库装不上，这就是你第一次安装时遇到的问题），`make.sh` 会自动用它。Codex 之前自己建的虚拟环境可以留着，不冲突。
 
-## 登录 Codex
+## 在 Codex 桌面端打开项目
 
-```bash
-codex
-```
+1. 打开 Codex 桌面端，用 ChatGPT 订阅账号登录。
+2. 把 `video-production-tools-cases` 这个文件夹作为项目打开（之后都在这个项目里对话）。
+3. Codex 会自动读取仓库根目录的 `AGENTS.md`，不用再交代规则。
 
-第一次会弹出浏览器，选 **Sign in with ChatGPT**，用你的订阅账号登录。
+不需要终端，也不需要 `start-codex.command`（那是启动命令行版用的，可以删掉）。
+
+**查看结果**：在 Mac 上，`make.sh` 出完联系表会自动用"预览"打开 `sheet.jpg`，出完成片会自动打开视频。不想自动打开时，让 Codex 在命令前加 `NO_OPEN=1`。Codex 改了哪些文件，在对话里点"查看变更"就能看到，不对的点"撤销"。
 
 ## 每周怎么分工
 
@@ -94,7 +96,8 @@ episodes/004-xxx/build/sheet.jpg 第 3 张，标题压住了图。只改 episode
 
 | 现象 | 处理 |
 |---|---|
-| Codex 渲染时报浏览器启动失败 | Codex 默认在沙箱里执行命令，可能拦住 Chromium。让 Codex 只改数据，渲染你自己在终端跑：`bash pipeline/make.sh episodes/<id>` |
+| Codex 渲染时报浏览器启动失败 | Codex 默认在沙箱里执行命令，可能拦住 Chromium。Codex 请求权限时选允许；如果仍然不行，让 Codex 只改数据，渲染你在终端跑一条命令：`bash pipeline/make.sh episodes/<id>` |
+| 联系表或视频没有自动打开 | 沙箱可能拦住了 `open`。到 Finder 里打开 `episodes/<id>/build/sheet.jpg` 或 `deliverables/<id>.mp4` |
 | `pip install kokoro-onnx` 失败 | `brew install python@3.12`，删掉 `pipeline/.venv` 后重新跑 `bash pipeline/setup.sh` |
 | 渲染很慢 | 正常一期 15–30 分钟；电脑有独立显卡会快一些 |
 | Codex 改了 `format.js` 或 `brand.js` | 这两个不该改。让它撤销：`git checkout -- pipeline/` |
