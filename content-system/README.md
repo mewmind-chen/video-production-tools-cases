@@ -16,7 +16,8 @@
 | [`audience.md`](audience.md) | 观众是谁、他们为什么发愁、我们的独特价值 |
 | [`sources.md`](sources.md) | 每周固定扫描的信息源 |
 | [`scoring.md`](scoring.md) | 选题打分标准 |
-| [`persona.md`](persona.md) | 人设、说话方式、文案公式、行动号召、私信模板、红线、视频里的固定人设元素 |
+| [`persona.md`](persona.md) | 人设 LEO、每期固定模板（钩子 → 自我介绍 → 内容 → 片尾）、说话方式、找料入口、私信模板、红线 |
+| [`research/`](research/) | 调研记录（人设与同类账号） |
 | [`channel-setup.md`](channel-setup.md) | 账号设置：简介、头衔、横幅、头像（[`brand/`](brand/)），可直接粘贴 |
 | [`style-guide.md`](style-guide.md) | 脚本写法、画面风格、声音规则、事实红线 |
 | [`backlog.md`](backlog.md) | 选题池 |

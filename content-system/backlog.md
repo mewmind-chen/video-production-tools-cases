@@ -15,3 +15,4 @@
 | 💡 | Playbook | 怎么读懂一张料盘标签（美系 ECIA 1P/Q/9D/1T vs 日系 EIAJ ⟨P/N⟩/⟨QTY⟩/⟨L⟩） | Every reel label tells you five things. | 用户提供的太阳诱电实拍标签是 EIAJ 格式；ECIA EIGP 114 待取原文 | 70 |
 | 💡 | China 101 | 华强北是怎么运作的 | The world's biggest electronics market, explained in 60 seconds. | 需要可靠的一手描述 | 60 |
 | 💡 | Market Pulse | MLCC Q4：三星电机、村田、国巨都在涨价，部分料交期约 40 周 | 40 weeks for a capacitor. | 见 `episodes/_weekly/2026-10-17-signals.md` #8。原厂涨价函未公开，需要找 A 级来源 | 74 |
+| 💡 | **Part Hunt**（新栏目） | 观众评论 / 私信的料号，LEO 去问深圳市场，下一期公布结果 | You asked for this part. Here's what Shenzhen said. | 参考 Adafruit × DigiKey 的 The Great Search；需要第一批观众料号 | — |

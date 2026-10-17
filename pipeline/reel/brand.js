@@ -1,7 +1,8 @@
 // 频道人设层：所有栏目、所有期共用。人设是 LEO（化名），深圳做元器件的业内人，用展会胸牌介绍自己。
 // 规则见 content-system/persona.md。每期视频固定包含：
 // 1. 钩子（各栏目自己画，前 3 秒）
-// 2. 自我介绍：胸牌挂着挂绳甩进画面 → intro()，台词固定："I'm Leo. I trade components in Shenzhen. This is <栏目>."
+// 2. 自我介绍：钩子之后一句身份，胸牌挂着挂绳甩进画面 → intro()，台词固定："I'm Leo. I trade components in Shenzhen."
+//    （调研：不要用打招呼、报频道名开场；身份放在钩子后面，回答"凭什么听你的"。见 content-system/research/2026-10-17-persona-research.md）
 // 3. 全程常驻：字幕左侧挂着 LEO 的小胸牌 + 声纹（替换 engine 默认的光球）
 // 4. 角标：左上频道名 / 栏目与期数，右上深圳电头
 // 5. 统一片尾卡：胸牌 + 找料入口 + 一周排期 + 来源
@@ -13,11 +14,11 @@ export const BRAND = {
   city: 'SHENZHEN',
   host: { name: 'LEO', role: 'COMPONENTS TRADER', place: 'HUAQIANGBEI · SHENZHEN', footer: 'AI VOICE · MY NUMBERS' },
   shows: [['MON', 'NEWS DECODER'], ['WED', 'MARKET PULSE'], ['FRI', 'BUYER’S PLAYBOOK']],
-  cta: ['PART YOU CAN’T FIND?', 'SEND ME THE PART NUMBER.'],
-  ctaWhere: 'DM CHINA SUPPLY CHAIN SIGNAL ON LINKEDIN',
+  cta: ['PART YOU CAN’T FIND?', 'COMMENT OR DM THE PART NUMBER.'],
+  ctaWhere: 'I’LL ASK AROUND SHENZHEN AND REPLY',
 };
 // 自我介绍的固定台词（写进各期 episode.json 的 intro 场景）
-export const introLine = series => ({ text: `I'm Leo. I trade components in Shenzhen. This is ${series}.`, say: `I'm Leo. I trade components in Shenzhen. This is ${series}.` });
+export const INTRO_LINE = { text: "I'm Leo. I trade components in Shenzhen.", say: "I'm Leo. I trade components in Shenzhen." };
 
 const norm = s => String(s || '').toUpperCase().replace(/[’']/g, "'");
 const DAY = { MON: 'MONDAY', WED: 'WEDNESDAY', FRI: 'FRIDAY' };

@@ -27,8 +27,8 @@
       "type": "intro",
       "lines": [
         {
-          "text": "I'm Leo. I trade components in Shenzhen. This is Buyer's Playbook.",
-          "say": "I'm Leo. I trade components in Shenzhen. This is Buyer's Playbook."
+          "text": "I'm Leo. I trade components in Shenzhen.",
+          "say": "I'm Leo. I trade components in Shenzhen."
         }
       ]
     },

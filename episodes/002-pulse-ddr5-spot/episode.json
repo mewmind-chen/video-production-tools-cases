@@ -68,8 +68,8 @@
       "type": "intro",
       "lines": [
         {
-          "text": "I'm Leo. I trade components in Shenzhen. This is Market Pulse.",
-          "say": "I'm Leo. I trade components in Shenzhen. This is Market Pulse."
+          "text": "I'm Leo. I trade components in Shenzhen.",
+          "say": "I'm Leo. I trade components in Shenzhen."
         }
       ]
     },

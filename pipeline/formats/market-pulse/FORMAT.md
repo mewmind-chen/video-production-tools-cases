@@ -13,7 +13,7 @@
 | # | type | 底色 | 做什么 | 每期要填的 |
 |---|---|---|---|---|
 | 1 | `open` | 墨黑 | 一个反常的数字：旧价划掉，新价滚动到位，配产品图 | `kicker` `product` `productLabel` `prefix` `from` `to` `suffix` `after`（两行结论） `source` |
-| 2 | `intro` | 墨黑 | 频道统一的自我介绍：LEO 的胸牌甩进来（`pipeline/reel/brand.js`），下面是本栏目的心电图，声音标识是心跳 | 只有一句固定台词：`I'm Leo. I trade components in Shenzhen. This is Market Pulse.` |
+| 2 | `intro` | 墨黑 | 频道统一的自我介绍：LEO 的胸牌甩进来（`pipeline/reel/brand.js`），下面是本栏目的心电图，声音标识是心跳 | 只有一句固定台词：`I'm Leo. I trade components in Shenzhen.`（不报栏目名，栏目名在画面上） |
 | 3 | `spot` | 纸白 | 现货：**只画报道过的点**，点之间虚线连，事件用红色竖线 | `title` `yMax` `yStep` `months` `years` `points[]` `events[]` `note` `source` |
 | 4 | `contract` | 墨黑 | 合约：季度涨幅柱 → 叠成台阶（价格累积） → 倍数 | `kicker` `title` `bars[]` `quote` `quoteLine` `stairsLine` `stairsAt` `base` `final` `finalLine` `note` `source` |
 | 5 | `street` | 电光蓝 | 市场声音：一句商户或业内的话，**必须标"观点，不是预测"** | `label` `quote`（两行） `attribution` `years` `range` |

@@ -6,7 +6,7 @@ import { resolve, dirname, join, normalize, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..'), OUT = join(ROOT, 'content-system/brand');
-const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.woff2': 'font/woff2' };
+const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.woff2': 'font/woff2' };
 const server = createServer((req, res) => {
   const p = normalize(join(ROOT, decodeURIComponent(req.url.split('?')[0])));
   if (!p.startsWith(ROOT) || !existsSync(p)) { res.writeHead(404); return res.end(); }

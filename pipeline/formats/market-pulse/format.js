@@ -393,11 +393,10 @@ export default async function (EP, TL) {
     R.FX.grain = .035; R.FX.vign = .18;
   }
 
-  // ---------- outro：频道统一片尾卡 + 栏目的心电图 ----------
+  // ---------- outro：频道统一片尾卡（LEO 胸牌 + 找料入口）----------
   function sOutro(t) {
     const v = V.outro, s0 = S.outro, e0 = E.outro;
     B.endCard(t, s0, { sources: v.sources, cta: v.cta });
-    ecg(600, 1010, 316, 46, seg(t, s0 + .3, s0 + 1.0), K.lime, 4, .5);
     HUD(t, true, 1 - seg(t, e0 - .6, e0));
     R.FX.grain = .05; R.FX.vign = .45;
     const fade = seg(t, e0 - .5, e0); if (fade > 0) { const c = g(); c.save(); c.fillStyle = `rgba(0,0,0,${fade})`; c.fillRect(0, 0, W, H); c.restore(); }
