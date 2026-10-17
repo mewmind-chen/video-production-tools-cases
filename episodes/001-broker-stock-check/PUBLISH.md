@@ -1,5 +1,7 @@
 # 001 发布文案
 
+> 2026-10-17 更新：平台改为 YouTube Shorts / TikTok 为主、LinkedIn 公司主页同步；主播是 LEO（化名）。下面 LinkedIn 部分的正文可以原样用于公司主页。
+
 > 发布前确认 `FACTS.md` 里的 ⚠️ 条目（TrendForce、Fusion Worldwide 两条市场数据）已经打开原文核对。
 
 ## LinkedIn
@@ -26,12 +28,14 @@
 
 **第一条评论放来源**
 
-> Sources: TrendForce MLCC Market Bulletin (12 Aug 2026); Fusion Worldwide, The Greensheet (Aug 2026); buyer guidance from Mouser, Electropages and ERAI. Label fields and part numbers in the video are illustrative. AI-generated voice and visuals.
+> Sources: TrendForce MLCC Market Bulletin (12 Aug 2026); Fusion Worldwide, The Greensheet (Aug 2026); buyer guidance from Mouser, Electropages and ERAI. Label fields and part numbers in the video are illustrative. Leo is a pen name. AI-generated voice & visuals.
 
 ## YouTube Shorts
 
 - **标题**：Is that broker's stock real? 5 checks before you pay
-- **描述**：MLCC and memory are on allocation, and that's when fake stock does the most damage. Five checks to run before paying a broker. Sources in the pinned comment. AI-generated voice and visuals.
+- **描述**：MLCC and memory are on allocation, and that's when fake stock does the most damage. Five checks to run before paying a broker. Sources in the pinned comment. Leo is a pen name. AI-generated voice & visuals.
+- **置顶评论**：Which check did a broker refuse? Or comment a part number you can't find, and I'll ask around Shenzhen.
+- **TikTok**：同一标题和描述，打开"AI 生成内容"标签。
 - **标签**：electronic components, MLCC, procurement, counterfeit parts, supply chain
 
 ## 发布检查

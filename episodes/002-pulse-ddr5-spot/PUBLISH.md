@@ -1,5 +1,7 @@
 # 002 发布文案
 
+> 2026-10-17 更新：平台改为 YouTube Shorts / TikTok 为主、LinkedIn 公司主页同步；主播是 LEO（化名）。
+
 ## LinkedIn（主平台，周三 10-21 上午，北京时间晚上 = 欧洲上午）
 
 **¥200 → ¥1,400. Same 16GB stick of DDR5. One year.**
@@ -23,15 +25,15 @@ Sources:
 • TrendForce, Mar 31 / Jul 3 / Sep 30 2026
 
 Market Pulse: what China's parts market is saying, every Wednesday.
-AI-generated voice & visuals.
+Leo is a pen name. AI-generated voice & visuals.
 
 #electronics #procurement #supplychain #DRAM #memory
 
-## YouTube Shorts
+## YouTube Shorts / TikTok（主）
 
 **标题**：¥200 → ¥1,400: Shenzhen's RAM prices in one year #shorts
-**描述**：同上，来源保留。
+**描述**：同上，来源保留；TikTok 打开"AI 生成内容"标签。
 
 ## 置顶评论（两个平台都用）
 
-What are you seeing on memory quotes this week? Contract or spot?
+What are you seeing on memory quotes this week? Or comment a part number you can't find, and I'll ask around Shenzhen.
