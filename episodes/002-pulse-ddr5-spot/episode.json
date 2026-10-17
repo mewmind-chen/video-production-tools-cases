@@ -326,8 +326,7 @@
       "type": "outro",
       "visual": {
         "sources": [
-          "21st Century Business Herald, 2026-10-08",
-          "Sina Finance / Eastmoney, 2026-10-08",
+          "21st Century Business Herald / Shenzhen TV, 2026-10-07",
           "IT Home, 2026-07 · 10jqka, 2026-03-30",
           "TrendForce, 2026-03-31 / 07-03 / 09-30"
         ]
@@ -338,7 +337,7 @@
           "say": "Market Pulse. Every Wednesday. Sources are in the caption."
         }
       ],
-      "hold": 1.2
+      "hold": 2.2
     }
   ]
 }

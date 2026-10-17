@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: "Anton"; src: url(/pipeline/node_modules/@fontsource/anton/files/anton-latin-400-normal.woff2) format("woff2"); }
+  @font-face { font-family: "JetBrains Mono"; font-weight: 700; src: url(/pipeline/node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff2) format("woff2"); }
+  body { margin: 0; background: #0e0f0e; }
+</style></head>
+<body>
+<script type="module">
+// 账号头像和横幅：和视频里同一个 AI 主播形象、同一套颜色字体。由 pipeline/brand.mjs 调用。
+import { initHost } from '/pipeline/reel/host.js';
+await Promise.all([document.fonts.load('100px "Anton"'), document.fonts.load('700 20px "JetBrains Mono"')]);
+const K = { ink: '#0E0F0E', cream: '#F1EEE6', lime: '#DDF53D' };
+const NAME = 'CHINA SUPPLY CHAIN SIGNAL', TAG = 'CHINA’S COMPONENT MARKET, TRANSLATED FOR OVERSEAS BUYERS';
+const SHOWS = [['MON', 'NEWS DECODER'], ['WED', 'MARKET PULSE'], ['FRI', 'BUYER’S PLAYBOOK']];
+const MOTTO = 'HUMAN-SOURCED. AI-NARRATED.';
+function orb(size) { const c = document.createElement('canvas'); c.width = c.height = size; initHost(c, { env: new Array(200).fill(.35) })(1.2); return c; }
+function base(w, h) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d');
+  g.fillStyle = K.ink; g.fillRect(0, 0, w, h);
+  const step = Math.round(h / 12); g.strokeStyle = 'rgba(241,238,230,.05)'; g.lineWidth = 1; g.beginPath();
+  for (let x = 0; x < w; x += step) { g.moveTo(x, 0); g.lineTo(x, h); } for (let y = 0; y < h; y += step) { g.moveTo(0, y); g.lineTo(w, y); } g.stroke();
+  return [c, g];
+}
+const T = (g, s, x, y, f, col, ls = 0, align = 'left') => { g.font = f; g.fillStyle = col; g.letterSpacing = ls + 'px'; g.textAlign = align; g.fillText(s, x, y); };
+// 品牌块：画在 (x, y, w, h) 框内，右对齐时 x 为右边界
+function block(g, x, y, h, align = 'left') {
+  const big = Math.round(h * .3), mono = Math.round(h * .075), ox = orb(Math.round(h * .62));
+  const dir = align === 'left' ? 1 : -1;
+  const ow = ox.width; g.drawImage(ox, align === 'left' ? x - ow * .12 : x - ow * .88, y + h * .02);
+  const tx = x + dir * ow * .9;
+  T(g, 'CHINA SUPPLY', tx, y + big * 1.05, `${big}px Anton`, K.cream, 0, align);
+  T(g, 'CHAIN SIGNAL.', tx, y + big * 2.05, `${big}px Anton`, K.cream, 0, align);
+  T(g, TAG, tx, y + big * 2.05 + mono * 2.2, `700 ${mono}px "JetBrains Mono"`, K.lime, mono * .12, align);
+  T(g, MOTTO, tx, y + big * 2.05 + mono * 3.9, `700 ${mono}px "JetBrains Mono"`, 'rgba(241,238,230,.55)', mono * .12, align);
+}
+function shows(g, x, y, size, gap) {
+  SHOWS.forEach(([d, n], i) => { T(g, d, x, y + i * gap, `700 ${size}px "JetBrains Mono"`, K.lime, size * .15); T(g, n, x + size * 3.2, y + i * gap, `700 ${size}px "JetBrains Mono"`, K.cream, size * .15); });
+}
+const out = {};
+{ const [c, g] = base(800, 800); g.drawImage(orb(760), 20, 20); out['avatar.png'] = c; }
+{ // LinkedIn 个人横幅 1584×396：左下角会被头像挡住，内容放右侧
+  const [c, g] = base(1584, 396); block(g, 1520, 70, 250, 'right'); out['linkedin-banner.png'] = c; }
+{ // LinkedIn 公司主页封面 1128×191：标志压在左下，内容放右侧
+  const [c, g] = base(1128, 191);
+  T(g, 'CHINA SUPPLY CHAIN SIGNAL.', 1090, 92, '64px Anton', K.cream, 0, 'right');
+  T(g, TAG, 1090, 136, '700 17px "JetBrains Mono"', K.lime, 2, 'right');
+  T(g, MOTTO, 1090, 166, '700 15px "JetBrains Mono"', 'rgba(241,238,230,.55)', 2, 'right');
+  out['linkedin-page-cover.png'] = c; }
+{ // YouTube 2560×1440：文字全部放在中间 1546×423 安全区（x 507–2053，y 508–931）
+  const [c, g] = base(2560, 1440); block(g, 560, 530, 380, 'left'); shows(g, 1600, 600, 28, 52);
+  out['youtube-banner.png'] = c; }
+window.__ASSETS__ = Object.fromEntries(Object.entries(out).map(([k, c]) => [k, c.toDataURL('image/png')]));
+window.__READY__ = true;
+</script></body></html>

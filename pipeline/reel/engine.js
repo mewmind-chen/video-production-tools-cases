@@ -225,7 +225,7 @@ export function createReel({ EP, TL }) {
     host(t);
     const g = mainCtx;
     g.drawImage(hostCanvas, 60, LAY.subY - 18, 150, 150);
-    g.save(); g.font = font(F.mono, 18, 700); g.letterSpacing = '4px'; g.fillStyle = K.lime; g.textAlign = 'center'; g.fillText('AI HOST', 135, LAY.subY + 150); g.restore();
+    g.save(); g.font = font(F.mono, 18, 700); g.letterSpacing = '4px'; g.fillStyle = K.lime; g.textAlign = 'center'; g.fillText('AI VOICE', 135, LAY.subY + 150); g.restore();
     if (!sub) return;
     g.save(); g.font = font(F.sans, 46, 700); g.letterSpacing = '0px';
     const w = Math.min(g.measureText(sub.text).width, 760) + 56, x = 232, y = LAY.subY + 4;

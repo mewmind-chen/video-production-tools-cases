@@ -3,6 +3,7 @@
 // 每个场景读 scene.visual；元素出现的时间用 "line"（第几句台词）和 "at"（这句进行到几成）指定。说明见 FORMAT.md。
 import { createReel, K, F, LAY, W, H, BEAT, clamp, lerp, seg, ease, easeOut, easeIn, easeInOut, expoOut, ioExpo, backOut, hash, TAU, font } from '/pipeline/reel/engine.js';
 import { cues, ORDER } from './cues.mjs';
+import { createBrand } from '/pipeline/reel/brand.js';
 
 const PAPER = '#ECE8DD';
 const fmtN = n => Math.round(n).toLocaleString('en-US');
@@ -12,6 +13,7 @@ export default async function (EP, TL) {
   const V = Object.fromEntries(EP.scenes.map(s => [s.type, s.visual || {}]));
   EP.chapters = [['OPEN', 0, S.spot], ['SPOT', S.spot, S.contract], ['CONTRACT', S.contract, S.street], ['STREET', S.street, S.actions], ['ACTIONS', S.actions, S.outro], ['END', S.outro, C.dur]];
   const R = createReel({ EP, TL });
+  const B = createBrand(R, EP);
   const { txt, measure, bg, line, circle, rrect, chip, dropWord, hud } = R;
   const ML = LAY.ml, MR = LAY.mr, CW = MR - ML;
   const g = () => R.ctx;
@@ -57,7 +59,7 @@ export default async function (EP, TL) {
     dropWord(s, o.x ?? ML, y, font(F.cond, size), t0, t, { fill: o.col || K.cream, fall: 160, stag: .025, fillAt: i => (i === s.length - 1 && s.endsWith('.')) ? (o.dot || K.red) : undefined });
     return size;
   }
-  const HUD = (t, dark, k = 1) => hud(t, { tl: `MARKET PULSE — ${EP.week || ''}`, br: 'SOURCES IN CAPTION', bl: EP.date || '', dark, k });
+  const HUD = (t, dark, k = 1) => B.hud(t, { tl: `MARKET PULSE · ${EP.week || ''}`, br: 'SOURCES IN CAPTION', dark, k });
   function wrap(s, f, maxW) {
     const words = s.split(' '), out = []; let cur = '';
     for (const w of words) { const c2 = cur ? cur + ' ' + w : w; if (cur && measure(c2, f) > maxW) { out.push(cur); cur = w; } else cur = c2; }
@@ -401,17 +403,11 @@ export default async function (EP, TL) {
     R.FX.grain = .035; R.FX.vign = .18;
   }
 
-  // ---------- outro ----------
+  // ---------- outro：频道统一片尾卡 + 栏目的心电图 ----------
   function sOutro(t) {
     const v = V.outro, s0 = S.outro, e0 = E.outro;
-    bg(K.ink); grid('rgba(241,238,230,.035)', t);
-    chip(EP.brand || '', ML, 420, { k: seg(t, s0 + .1, s0 + .4), bg: 'rgba(241,238,230,.1)', fg: K.cream, font: font(F.mono, 22, 700), ls: 3, h: 48 });
-    ecg(-20, W + 20, 590, 110, seg(t, s0, s0 + .9), K.lime, 6, .78);
-    title('MARKET PULSE.', 790, t, s0 + .3, { dot: K.lime, max: 190 });
-    txt('EVERY WEDNESDAY', ML, 870, { font: font(F.mono, 34, 700), fill: K.lime, ls: 6, a: seg(t, s0 + .8, s0 + 1.1) });
-    txt('SOURCES', ML, 1010, { font: font(F.mono, 21, 700), fill: 'rgba(241,238,230,.5)', ls: 4, a: seg(t, s0 + 1, s0 + 1.3) });
-    (v.sources || []).forEach((s, i) => txt(s, ML, 1060 + i * 46, { font: font(F.mono, 25, 500), fill: K.cream, a: seg(t, s0 + 1.1 + i * .12, s0 + 1.4 + i * .12) }));
-    txt('AI-GENERATED VOICE & VISUALS', ML, 1330, { font: font(F.mono, 20, 700), fill: 'rgba(241,238,230,.45)', ls: 3, a: seg(t, s0 + 1.5, s0 + 1.8) });
+    B.endCard(t, s0, { sources: v.sources, cta: v.cta });
+    ecg(600, 1010, 316, 46, seg(t, s0 + .3, s0 + 1.0), K.lime, 4, .5);
     HUD(t, true, 1 - seg(t, e0 - .6, e0));
     R.FX.grain = .05; R.FX.vign = .45;
     const fade = seg(t, e0 - .5, e0); if (fade > 0) { const c = g(); c.save(); c.fillStyle = `rgba(0,0,0,${fade})`; c.fillRect(0, 0, W, H); c.restore(); }

@@ -3,6 +3,7 @@
 import { createReel, K, F, LAY, W, H, BEAT, clamp, lerp, seg, ease, easeOut, easeIn, expoOut, backOut, hash, beatPulse, TAU, font } from '/pipeline/reel/engine.js';
 import { cues, KEYS } from './cues.mjs';
 import { createMLCC } from './mlcc.js';
+import { createBrand } from '/pipeline/reel/brand.js';
 
 export default async function (EP, TL) {
   const C = cues(TL), S = C.S, E = C.E, Hh = C.hits;
@@ -10,6 +11,7 @@ export default async function (EP, TL) {
   const R = createReel({ EP, TL });
   const { txt, letters, measure, bg, line, circle, rrect, starburst, asterisk, arrowNE, arrow, chip, odometer, tape, dropWord, stackWord, glitchIn, redacted, thread, barcode, glShot, mark, hud, terrain, RECT } = R;
   const mlcc = createMLCC(R);
+  const B = createBrand(R, EP);
   const ML = LAY.ml, MR = LAY.mr, CW = MR - ML;
 
   // 自适应字号：在最大宽度内取最大字号
@@ -29,7 +31,7 @@ export default async function (EP, TL) {
     return y;
   }
   const index = (n, t, t0, dark = true) => chip(`CHECK ${String(n).padStart(2, '0')} / 05`, ML, 196, { k: seg(t, t0, t0 + .3), bg: dark ? K.lime : K.ink, fg: dark ? K.ink : K.lime });
-  const HUD_TL = '001 — BUYER’S PLAYBOOK';
+  const HUD_TL = 'BUYER’S PLAYBOOK · 001';
   const sec = (i, name) => `■ ${String(i).padStart(2, '0')} / 05   ${name}`;
 
   // ---------- 产品的平面画法（按真实毫米比例）----------
@@ -141,7 +143,7 @@ export default async function (EP, TL) {
     const w1 = chip('5 CHECKS', ML, 1400, { k: seg(t, h.chips, h.chips + .3), bg: K.lime, fg: K.ink });
     chip('BEFORE YOU PAY A BROKER', ML + w1 + 14, 1400, { k: seg(t, h.chips + .15, h.chips + .45), bg: K.cream, fg: K.ink });
     RECT.openChip = [ML, 1373, w1, 54];
-    hud(t, { tl: HUD_TL, bl: sec(0, 'OPEN'), br: 'MLCC · 0805 · RENDERED IN CODE', k: ease(seg(lt, .1, .6)) });
+    B.hud(t, { tl: HUD_TL, bl: sec(0, 'OPEN'), br: 'MLCC · 0805 · RENDERED IN CODE', k: ease(seg(lt, .1, .6)) });
   }
 
   function sAlloc(t) {
@@ -156,7 +158,7 @@ export default async function (EP, TL) {
     chip('TRENDFORCE · MLCC BULLETIN · AUG 2026', ML, 1170, { k: sk, bg: K.ink, fg: K.lime, font: font(F.mono, 24, 700) });
     txt('SHORTAGES + PRICE HIKES', ML, 1272, { font: font(F.cond, 84), fill: K.ink, a: seg(t, h.source + .25, h.source + .5) });
     txt('→ INTO NEXT QUARTER', ML, 1362, { font: font(F.cond, 84), fill: K.ink, a: seg(t, h.source + .45, h.source + .7) });
-    hud(t, { dark: false, tl: HUD_TL, bl: sec(0, 'WHY NOW'), br: 'SOURCE: TRENDFORCE, 12 AUG 2026', brackets: false });
+    B.hud(t, { dark: false, tl: HUD_TL, bl: sec(0, 'WHY NOW'), br: 'SOURCE: TRENDFORCE, 12 AUG 2026', brackets: false });
   }
 
   function sDdr5(t) {
@@ -181,7 +183,7 @@ export default async function (EP, TL) {
       txt('REPORTED FILL RATE', xl, 1270, { font: font(F.mono, 24, 700), fill: K.ink, ls: 3, a: seg(ck, .5, 1) });
       txt('TRADITIONAL OEMs', xl, 1310, { font: font(F.mono, 24, 700), fill: K.ink, ls: 3, a: seg(ck, .6, 1) });
     }
-    hud(t, { dark: false, tl: HUD_TL, bl: sec(0, 'WHY NOW'), br: 'SOURCE: FUSION WORLDWIDE, AUG 2026', brackets: false });
+    B.hud(t, { dark: false, tl: HUD_TL, bl: sec(0, 'WHY NOW'), br: 'SOURCE: FUSION WORLDWIDE, AUG 2026', brackets: false });
   }
 
   function sPhoto(t) {
@@ -213,7 +215,7 @@ export default async function (EP, TL) {
     if (t > h.shutter && t < h.shutter + .12) R.FX.flash = .9 * (1 - (t - h.shutter) / .12);
     RECT.polaroid = [fx, fy, fw, fh];
     chip('CATCHES: BAIT STOCK', ML, 1404, { k: seg(t, h.tag, h.tag + .3), bg: K.red, fg: K.cream });
-    hud(t, { tl: HUD_TL, bl: sec(1, 'PHOTO'), br: 'DATE + YOUR NAME IN FRAME' });
+    B.hud(t, { tl: HUD_TL, bl: sec(1, 'PHOTO'), br: 'DATE + YOUR NAME IN FRAME' });
   }
 
   function sDateCode(t) {
@@ -229,9 +231,9 @@ export default async function (EP, TL) {
     txt('YEAR · 2025', x0 + 6, by + 80, { font: font(F.mono, 30, 700), fill: K.lime, ls: 3, a: yk });
     line([[x0 + w25 + 6, by], [x0 + w25 + 6, by + 24], [x0 + w25 + w41 - 6, by + 24], [x0 + w25 + w41 - 6, by]], K.lime, 5, wk);
     txt('WEEK · 41', x0 + w25 + 6, by + 80, { font: font(F.mono, 30, 700), fill: K.lime, ls: 3, a: wk });
-    txt('(9D) D/C · EXAMPLE FORMAT YYWW', ML, 760, { font: font(F.mono, 26, 700), fill: 'rgba(241,238,230,.8)', ls: 3, a: seg(lt, .8, 1.1) });
+    txt('D/C · EXAMPLE YYWW · NO D/C FIELD? CHECK LOT', ML, 760, { font: font(F.mono, 26, 700), fill: 'rgba(241,238,230,.8)', ls: 3, a: seg(lt, .8, 1.1) });
     chip('IMPOSSIBLE DATE → RE-MARKED?', ML, 1400, { k: seg(t, h.warn, h.warn + .3), bg: K.red, fg: K.cream });
-    hud(t, { tl: HUD_TL, bl: sec(2, 'DATE CODE'), br: 'SAME LOT ACROSS REELS?' });
+    B.hud(t, { tl: HUD_TL, bl: sec(2, 'DATE CODE'), br: 'SAME LOT ACROSS REELS?' });
   }
 
   function sLabel(t) {
@@ -249,7 +251,7 @@ export default async function (EP, TL) {
       });
     }
     chip('NOT SURE? ASK THE MAKER OR AN AUTHORIZED DISTRIBUTOR', ML, 1400 - 8, { k: seg(t, h.maker, h.maker + .3), bg: K.blue, fg: K.cream, font: font(F.mono, 21, 700), ls: 2 });
-    hud(t, { dark: false, tl: HUD_TL, bl: sec(3, 'LABEL'), br: 'LABEL FIELDS PER ECIA-STYLE 2D LABEL', brackets: false });
+    B.hud(t, { dark: false, tl: HUD_TL, bl: sec(3, 'LABEL'), br: 'EXAMPLE: ECIA FORMAT · JP MAKERS DIFFER', brackets: false });
   }
 
   function sPaper(t) {
@@ -286,7 +288,7 @@ export default async function (EP, TL) {
     RECT.matchDot = p1;
     chip('✓ SAME LOT', ML, 1330, { k: seg(t, h.match + .2, h.match + .5), bg: K.lime, fg: K.ink });
     chip('NO PAPER TRAIL = RED FLAG', ML, 1400, { k: seg(t, h.flag, h.flag + .3), bg: K.red, fg: K.cream });
-    hud(t, { tl: HUD_TL, bl: sec(4, 'PAPER TRAIL'), br: 'CoC + PURCHASE HISTORY' });
+    B.hud(t, { tl: HUD_TL, bl: sec(4, 'PAPER TRAIL'), br: 'CoC + PURCHASE HISTORY' });
   }
 
   function sTeardown(t) {
@@ -314,7 +316,7 @@ export default async function (EP, TL) {
       txt(name, lx, ly, { font: font(F.mono, 26, 700), fill: K.ink, ls: 2, a: seg(p, .4, 1) });
     });
     chip('REAL STOCK SAYS YES.', ML, 1410, { k: seg(t, h.yes, h.yes + .3), bg: K.lime, fg: K.ink });
-    hud(t, { dark: false, tl: HUD_TL, bl: sec(5, 'LAB TEST'), br: 'TYPICAL STRUCTURE · SCHEMATIC', brackets: false });
+    B.hud(t, { dark: false, tl: HUD_TL, bl: sec(5, 'LAB TEST'), br: 'TYPICAL STRUCTURE · SCHEMATIC', brackets: false });
   }
 
   function sRecap(t) {
@@ -326,20 +328,13 @@ export default async function (EP, TL) {
       R.ctx.fillStyle = K.ink; R.ctx.fillRect(0, 1110, W * easeOut(vk), 260);
       stackWord('VERIFIED.', W / 2, 1300, font(F.wide, fit('VERIFIED.', F.wide, CW, 170)), h.verified + .1, t, { align: 'center', fill: K.lime, echo: 0 });
     }
-    hud(t, { dark: false, tl: HUD_TL, bl: sec(5, 'RECAP'), br: 'SAVE THIS FOR YOUR NEXT URGENT ORDER', brackets: false });
+    B.hud(t, { dark: false, tl: HUD_TL, bl: sec(5, 'RECAP'), br: 'SAVE THIS FOR YOUR NEXT URGENT ORDER', brackets: false });
   }
 
   function sEnd(t) {
-    bg(K.ink); const lt = t - S.end, h = Hh.end;
-    glShot(terrain(t, { fade: .45, amp: .8, push: t * .4, camY: 3.0, lookY: -2.4, tint: K.lime }));
-    const sz = fit('SUPPLY CHAIN', F.cond, CW, 210);
-    dropWord('CHINA', ML, 600, font(F.cond, sz), h.name, t, { stag: .04, dur: .4 });
-    dropWord('SUPPLY CHAIN', ML, 600 + sz, font(F.cond, sz), h.name + .2, t, { stag: .03, dur: .4 });
-    dropWord('SIGNAL.', ML, 600 + sz * 2, font(F.cond, sz), h.name + .4, t, { stag: .04, dur: .4, fillAt: i => i === 6 ? K.lime : K.cream });
-    mark(880, 330, 34, t, seg(t, h.mark, h.mark + .5));
-    chip('FOLLOW FOR WEEKLY SIGNALS', ML, 600 + sz * 2 + 120, { k: seg(t, h.chip, h.chip + .3), bg: K.lime, fg: K.ink });
-    txt('AI-GENERATED VOICE & VISUALS · SOURCES IN CAPTION', ML, 600 + sz * 2 + 210, { font: font(F.mono, 20, 700), fill: 'rgba(241,238,230,.6)', ls: 2, a: seg(t, h.chip + .3, h.chip + .6) });
-    hud(t, { tl: HUD_TL, tr: 'EVERY WEEK · ONE SIGNAL', bl: 'CHINA SUPPLY CHAIN SIGNAL', br: 'BUYER’S PLAYBOOK · 001', k: seg(lt, .5, 1) });
+    const lt = t - S.end, h = Hh.end;
+    B.endCard(t, S.end + .1, { sources: ['TrendForce MLCC Market Bulletin, 2026-08-12', 'Fusion Worldwide Greensheet, 2026-08'] });
+    B.hud(t, { tl: HUD_TL, br: 'SOURCES IN CAPTION', k: seg(lt, .5, 1) });
     if (t > h.glitch) { const g = seg(t, h.glitch, h.dot); R.FX.slice = g; R.FX.split = .02 * g; R.FX.seed = Math.floor(t * 30); }
     if (t > h.dot) { const k = seg(t, h.dot, h.dot + .25); bg(K.ink); circle(W / 2, H / 2, lerp(60, 4, easeIn(k)) * (1 - seg(t, C.dur - .2, C.dur)), { fill: K.lime }); R.FX.slice = 0; R.FX.split = 0; }
   }

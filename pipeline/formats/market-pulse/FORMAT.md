@@ -18,7 +18,7 @@
 | 4 | `contract` | 墨黑 | 合约：季度涨幅柱 → 叠成台阶（价格累积） → 倍数 | `kicker` `title` `bars[]` `quote` `quoteLine` `stairsLine` `stairsAt` `base` `final` `finalLine` `note` `source` |
 | 5 | `street` | 电光蓝 | 市场声音：一句商户或业内的话，**必须标"观点，不是预测"** | `label` `quote`（两行） `attribution` `years` `range` |
 | 6 | `actions` | 纸白 | 本周三件事，一句一张卡；第三条尽量引到下一条视频 | `title` `items[]`（`tag` `icon`：stairs / clock / lens，`head` `sub` `line`） |
-| 7 | `outro` | 墨黑 | 栏目名、更新日、来源列表、AI 生成声明 | `sources[]` |
+| 7 | `outro` | 墨黑 | 频道统一片尾卡（`pipeline/reel/brand.js`）：栏目名、一周排期、找料入口、来源，加栏目的心电图 | `sources[]`（最多 4 条），`cta: false` 可关掉找料入口 |
 
 顶部行情条读 `episode.json` 的 `ticker`：`[名称, 数值, "up" 或 "down"]`。F 表示预测。
 
