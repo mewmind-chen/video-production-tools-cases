@@ -18,7 +18,8 @@
 | [`scoring.md`](scoring.md) | 选题打分标准 |
 | [`persona.md`](persona.md) | 人设 LEO、每期固定模板（钩子 → 自我介绍 → 内容 → 片尾）、说话方式、找料入口、私信模板、红线 |
 | [`research/`](research/) | 调研记录（人设与同类账号） |
-| [`codex-local.md`](codex-local.md) | 在自己电脑上用 Codex 出片：安装、登录、分工、怎么下指令 |
+| [`codex-local.md`](codex-local.md) | 在自己电脑上用 Codex 桌面端出片：安装、打开项目、分工 |
+| [`codex-prompts.md`](codex-prompts.md) | 给 Codex 的提示词：第一次接手、做新一期、改问题、出片、发布前检查 |
 | [`channel-setup.md`](channel-setup.md) | 账号设置：简介、头衔、横幅、头像（[`brand/`](brand/)），可直接粘贴 |
 | [`style-guide.md`](style-guide.md) | 脚本写法、画面风格、声音规则、事实红线 |
 | [`backlog.md`](backlog.md) | 选题池 |

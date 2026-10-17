@@ -72,6 +72,8 @@ git pull && bash pipeline/setup.sh
 
 ## 给 Codex 的话怎么说
 
+完整提示词见 [`codex-prompts.md`](codex-prompts.md)，下面是简版。
+
 **做新的一期**（选题和事实已经定好）：
 
 ```
