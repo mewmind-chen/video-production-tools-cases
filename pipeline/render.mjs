@@ -44,7 +44,7 @@ page.on('console', m => { if (m.type() === 'error') console.error('console:', m.
 await page.addInitScript(([ep, tl]) => { window.__EPISODE__ = ep; window.__TIMELINE__ = tl; }, [episode, timeline]);
 await page.goto(pageUrl);
 await page.waitForFunction(() => window.__READY__ === true, null, { timeout: 120000 });
-const shot = async (t, o = {}) => { await page.evaluate(t => window.renderAt(t), t); return page.screenshot({ type: 'jpeg', quality: 92, ...o }); };
+const shot = async (t, o = {}) => { await page.evaluate(t => window.renderAt(t), t); return page.screenshot({ type: 'jpeg', quality: 92, timeout: 180000, ...o }); };
 const done = async () => { await browser.close(); server.close(); };
 
 if (args.includes('--preview')) {
@@ -63,7 +63,7 @@ if (opt('--sheet')) {
   const files = [];
   for (const t of times) { const f = join(dir, `t${t.toFixed(2)}.jpg`); writeFileSync(f, await shot(t)); files.push(f); }
   const cols = Math.min(times.length, Number(opt('--cols') || 5));
-  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...files.flatMap(f => ['-i', f]), '-filter_complex',
+  if (files.length === 1) execFileSync('cp', [files[0], join(build, 'sheet.jpg')]); else execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...files.flatMap(f => ['-i', f]), '-filter_complex',
     files.map((_, i) => `[${i}]scale=432:768[s${i}]`).join(';') + ';' + files.map((_, i) => `[s${i}]`).join('') +
     `xstack=inputs=${files.length}:layout=${files.map((_, i) => `${(i % cols) * 432}_${Math.floor(i / cols) * 768}`).join('|')}:fill=black`,
     join(build, 'sheet.jpg')]);

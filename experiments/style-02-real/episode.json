@@ -1,0 +1,7 @@
+{
+  "id": "style-02-real",
+  "title": "Style test 02 — photoreal reel (no voice-over)",
+  "engine": "reel",
+  "subtitles": false,
+  "scenes": [{ "type": "film" }]
+}
