@@ -1,0 +1,70 @@
+{
+  "id": "example",
+  "title": "TEMPLATE SAMPLE — Buyer's Playbook format (content from 001, not for publishing)",
+  "brand": "China Supply Chain Signal",
+  "series": "Buyer's Playbook",
+  "engine": "reel",
+  "format": "playbook",
+  "week": "WK 43",
+  "date": "FRI 23 OCT 2026",
+  "voice": "am_michael",
+  "speed": 1.08,
+  "scenes": [
+    {
+      "type": "open",
+      "visual": {
+        "bubble": { "from": "BROKER", "time": "09:41", "text": "4,000 pcs. In stock. Ships today." },
+        "big": ["REAL STOCK?", "OR BAIT."],
+        "chips": ["5 CHECKS", "BEFORE YOU PAY A BROKER"]
+      },
+      "lines": [
+        { "text": "4,000 pcs. In stock. Ships today.", "say": "Four thousand pieces. In stock. Ships today." },
+        "Real stock, or bait? Five checks before you pay a broker."
+      ]
+    },
+    { "type": "intro", "lines": [ { "text": "I'm Leo. I trade components in Shenzhen.", "say": "I'm Leo. I trade components in Shenzhen." } ] },
+    {
+      "type": "why",
+      "visual": { "kicker": "WHY NOW", "prefix": "<", "value": "30", "suffix": "%", "tone": "alert", "label": "DDR5 server memory fulfillment for traditional OEMs", "note": "REPORTEDLY · SUPPLY GOES TO HYPERSCALERS FIRST", "source": "FUSION WORLDWIDE GREENSHEET · AUG 2026" },
+      "lines": [
+        { "text": "Memory is on allocation. Traditional OEMs reportedly get under 30% of their DDR5 orders.", "say": "Memory is on allocation. Traditional O-E-Ms reportedly get under thirty percent of their D-D-R five orders." }
+      ]
+    },
+    {
+      "type": "step",
+      "visual": { "title": ["PHOTO.", "TODAY."], "short": "photo", "visual": { "kind": "photo", "note": ["16 Oct", "for: Your Co."], "caption": "16 OCT · TODAY" }, "tag": "CATCHES: BAIT STOCK", "note": "DATE + YOUR NAME IN FRAME" },
+      "lines": [ "One. Ask for a photo taken today, with the date and your company name.", "Bait stock usually stops right here." ]
+    },
+    {
+      "type": "step",
+      "visual": { "title": ["DATE", "CODE."], "short": "date code", "visual": { "kind": "code", "code": "2541", "parts": [["25", "YEAR · 2025"], ["41", "WEEK · 41"]], "caption": "D/C · EXAMPLE YYWW · NO D/C FIELD? CHECK LOT" }, "tag": "IMPOSSIBLE DATE → RE-MARKED?", "note": "SAME LOT ACROSS REELS?" },
+      "lines": [ "Two. Check the date code. Reels should match, and the date should make sense.", "Impossible date codes often mean re-marked parts." ]
+    },
+    {
+      "type": "step",
+      "visual": { "title": ["LABEL", "= MAKER."], "short": "label", "visual": { "kind": "label", "title": "REEL LABEL · EXAMPLE", "rows": [["P/N", "CC0805X7R106K250"], ["QTY", "4000 PCS"], ["LOT", "8K12A0473"]], "locks": [0, 1, 2], "lockLine": 0, "lockAt": 0.5 }, "tag": "NOT SURE? ASK THE MAKER", "note": "EXAMPLE · LABEL FORMATS VARY BY MAKER" },
+      "lines": [ "Three. Part number, quantity and lot should match what the maker issued.", "Not sure? Ask the manufacturer or an authorized distributor." ]
+    },
+    {
+      "type": "step",
+      "visual": { "title": ["PAPER", "TRAIL."], "short": "paper trail", "visual": { "kind": "doc", "title": "CERTIFICATE OF CONFORMANCE", "rows": [["PART NO.", "CC0805X7R106K250"], ["QTY", "4000 PCS"], ["LOT NO.", "8K12A0473"], ["D/C", "2541"]], "hl": 2, "hlLine": 0, "hlAt": 0.7, "stamp": "QA" }, "tag": "NO PAPER TRAIL = RED FLAG", "note": "CoC + PURCHASE HISTORY" },
+      "lines": [ "Four. Ask for the certificate of conformance, and where the parts came from.", "No paper trail is a red flag." ]
+    },
+    {
+      "type": "step",
+      "visual": { "title": ["THIRD-PARTY", "TEST."], "short": "lab test", "visual": { "kind": "compare", "good": { "label": "REAL STOCK", "items": ["Says yes to X-ray", "Lets you pick the lab", "Shares the report"], "line": 0, "at": 0.4 }, "bad": { "label": "BAIT", "items": ["Pay first, test later", "Only their own lab", "Goes quiet"], "line": 1, "at": 0 } }, "tag": "REAL STOCK? THE ANSWER IS YES.", "tagTone": "ok" },
+      "lines": [ "Five. Ask if they'll accept third-party testing, like X-ray at an independent lab.", "A seller with real stock says yes." ]
+    },
+    {
+      "type": "recap",
+      "visual": { "heading": ["BEFORE", "YOU PAY."], "items": ["Photo taken today", "Date code makes sense", "Label matches the maker", "CoC + traceability", "Third-party test: yes"], "stamp": "VERIFIED." },
+      "lines": [ "Five checks. Save this for your next urgent order." ]
+    },
+    {
+      "type": "outro",
+      "visual": { "sources": ["Fusion Worldwide Greensheet, 2026-08", "Buyer guidance: Mouser, Electropages, ERAI"] },
+      "lines": [ "Buyer's Playbook. Every Friday. Sources in the caption." ],
+      "hold": 1.6
+    }
+  ]
+}

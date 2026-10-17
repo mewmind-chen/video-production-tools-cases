@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 一条命令做完一期：配音 → 配乐 → 联系表 → 成片 → 压缩到 deliverables/
+# 一条命令做完一期：检查 → 配音 → 配乐 → 联系表 → 成片 → 压缩到 deliverables/
 # 用法：
 #   bash pipeline/make.sh episodes/<id>            全流程
 #   bash pipeline/make.sh episodes/<id> --sheet    只做到联系表（先看画面，不渲染成片）
@@ -7,9 +7,15 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 EP="$(cd "$1" && pwd)"; ID="$(basename "$EP")"; MODE="${2:-}"
 cd "$ROOT/pipeline"
+# 配音用 setup.sh 建的独立 Python 环境；没有就用系统的 python3。也可以用 PYTHON=/path/to/python 指定
+PY="${PYTHON:-}"; for c in "$ROOT/pipeline/.venv/bin/python" "$ROOT/.venv/bin/python" "$ROOT/venv/bin/python"; do [ -z "$PY" ] && [ -x "$c" ] && PY="$c"; done; PY="${PY:-python3}"
+
+echo "▶ 0/4 检查 episode.json"
+node check.mjs "$EP" || { echo "检查没通过，先按上面的提示改 episode.json / FACTS.md"; exit 1; }
 
 echo "▶ 1/4 配音"
-python3 tts.py "$EP"
+"$PY" tts.py "$EP"
+node check.mjs "$EP" >/dev/null || { node check.mjs "$EP"; echo "配音后检查没通过（多半是时长），先删台词"; exit 1; }
 
 echo "▶ 2/4 配乐"
 FMT="$(python3 -c "import json,sys;print(json.load(open(sys.argv[1])).get('format',''))" "$EP/episode.json")"

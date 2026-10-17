@@ -3,7 +3,13 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-pip3 install -q kokoro-onnx soundfile
+# 配音库目前不支持太新的 Python（例如 3.14），所以在 pipeline/.venv 建一个独立环境，优先用 3.12
+if [ ! -x .venv/bin/python ]; then
+  PY=""; for c in python3.12 python3.11 python3.13 python3; do command -v "$c" >/dev/null && { PY="$c"; break; }; done
+  "$PY" -m venv .venv
+fi
+.venv/bin/python -m pip install -q --upgrade pip
+.venv/bin/python -m pip install -q kokoro-onnx soundfile
 
 mkdir -p models
 base=https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0

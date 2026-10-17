@@ -36,6 +36,9 @@
 
 ## 制作命令
 
+`make.sh` 会先运行 `node pipeline/check.mjs episodes/<id>` 自动检查（日期、周数、固定台词、台词编号、必填字段、文字长度、念法、时长、FACTS.md），有错误就停下。
+
+
 ```bash
 cd pipeline
 python3 tts.py ../episodes/<id>                              # 配音 + 时间表

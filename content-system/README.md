@@ -43,7 +43,7 @@ Market Pulse 需要一线价格数据。拿不到可靠数据的那一周，换�
 |---|---|---|
 | Market Pulse | [`pipeline/formats/market-pulse/FORMAT.md`](../pipeline/formats/market-pulse/FORMAT.md) | `episodes/002-pulse-ddr5-spot` |
 | News Decoder | [`pipeline/formats/news-decoder/FORMAT.md`](../pipeline/formats/news-decoder/FORMAT.md) | `episodes/003-decoder-rare-earth-deadline` |
-| Buyer's Playbook | 待做（001 是单独制作的，没有套格式） | `episodes/001-broker-stock-check` |
+| Buyer's Playbook | [`pipeline/formats/playbook/FORMAT.md`](../pipeline/formats/playbook/FORMAT.md) | 模板样例 `pipeline/formats/playbook/example`（001 是早期单独制作的） |
 
 ## 每一步怎么做
 

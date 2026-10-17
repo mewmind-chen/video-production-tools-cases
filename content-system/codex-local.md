@@ -42,6 +42,14 @@ bash pipeline/make.sh episodes/003-decoder-rare-earth-deadline --sheet
 
 几分钟后打开 `episodes/003-decoder-rare-earth-deadline/build/sheet.jpg`，看到 10 张画面就说明环境没问题。
 
+## 每次拉取更新后
+
+```bash
+git pull && bash pipeline/setup.sh
+```
+
+`setup.sh` 会在 `pipeline/.venv` 建一个 Python 3.12 的独立环境装配音库（系统是 Python 3.14 时配音库装不上，这就是你第一次安装时遇到的问题），`make.sh` 会自动用它。Codex 之前自己建的虚拟环境可以留着，不冲突。
+
 ## 登录 Codex
 
 ```bash
@@ -87,9 +95,10 @@ episodes/004-xxx/build/sheet.jpg 第 3 张，标题压住了图。只改 episode
 | 现象 | 处理 |
 |---|---|
 | Codex 渲染时报浏览器启动失败 | Codex 默认在沙箱里执行命令，可能拦住 Chromium。让 Codex 只改数据，渲染你自己在终端跑：`bash pipeline/make.sh episodes/<id>` |
-| `pip install kokoro-onnx` 失败 | 换 Python 3.12 再装 |
+| `pip install kokoro-onnx` 失败 | `brew install python@3.12`，删掉 `pipeline/.venv` 后重新跑 `bash pipeline/setup.sh` |
 | 渲染很慢 | 正常一期 15–30 分钟；电脑有独立显卡会快一些 |
 | Codex 改了 `format.js` 或 `brand.js` | 这两个不该改。让它撤销：`git checkout -- pipeline/` |
+| `make.sh` 停在"检查没通过" | 正常，说明 `episode.json` 有错。把提示原样发给 Codex 让它改 |
 
 ## 做完怎么交
 

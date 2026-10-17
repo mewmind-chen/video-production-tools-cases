@@ -10,17 +10,18 @@
 |---|---|---|
 | 周一 | News Decoder（新闻解读） | `pipeline/formats/news-decoder/FORMAT.md` |
 | 周三 | Market Pulse（行情脉搏） | `pipeline/formats/market-pulse/FORMAT.md` |
-| 周五 | Buyer's Playbook（采购实操） | 暂无固定格式，参考 `episodes/001-broker-stock-check/` |
+| 周五 | Buyer's Playbook（采购实操） | `pipeline/formats/playbook/FORMAT.md`（新一期从 `pipeline/formats/playbook/example/` 复制；001 是早期单独制作的，不要照它改代码） |
 
 ## 做一期新视频：只改数据，不改代码
 
-1. 复制同栏目上一期的文件夹：`episodes/<编号>-<短名>/`，例如 `cp -r episodes/003-decoder-rare-earth-deadline episodes/004-decoder-xxx`，删掉其中的 `build/` 和 `*.mp4`。
+1. 复制同栏目上一期的文件夹：`episodes/<编号>-<短名>/`，例如 `cp -r episodes/003-decoder-rare-earth-deadline episodes/004-decoder-xxx`，删掉其中的 `build/` 和 `*.mp4`。Buyer's Playbook 从 `pipeline/formats/playbook/example/` 复制（再补上 `FACTS.md`、`PUBLISH.md`）。
 2. 只改这几个文件：
    - `episode.json`：`id`、`week`（ISO 周，例：10 月 19–25 日是 WK 43）、`date`、每个场景的 `visual` 数据和 `lines` 台词（`text` 是字幕，`say` 是念法：数字写成英文单词，缩写拆开念，例如 `M-L-C-C`）
    - `FACTS.md`：每个数字、每句事实的出处和状态（✅ / ⚠️ / ❌）
    - `PUBLISH.md`：YouTube / TikTok 标题、描述、置顶评论
-3. 先出联系表看画面：`bash pipeline/make.sh episodes/<id> --sheet`，然后**打开 `episodes/<id>/build/sheet.jpg` 检查**：文字有没有互相压住、有没有超出画面、有没有进入字幕区（y > 1420）。
-4. 没问题再出成片：`bash pipeline/make.sh episodes/<id>`，约 20–30 分钟，结果在 `deliverables/<id>.mp4`，脚本最后会打印时长和响度。
+3. 先跑检查：`node pipeline/check.mjs episodes/<id>`。✗ 错误必须改完；⚠ 警告逐条看，能改就改（例如念法里的数字写成英文单词）。
+4. 出联系表看画面：`bash pipeline/make.sh episodes/<id> --sheet`（会自动先跑检查），然后**打开 `episodes/<id>/build/sheet.jpg` 检查**：文字有没有互相压住、有没有超出画面、有没有进入字幕区（y > 1420）。如果你看不了图片，告诉用户自己打开看。
+5. 没问题再出成片：`bash pipeline/make.sh episodes/<id>`，约 20–30 分钟，结果在 `deliverables/<id>.mp4`，脚本最后会打印时长和响度。
 
 场景的 `type` 和 `visual` 字段必须符合对应栏目的 `FORMAT.md`。元素出现时间用 `line`（第几句台词，从 0 开始）和 `at`（这句进行到几成，0–1）指定，不写秒数。
 
@@ -47,7 +48,7 @@
 
 ## 环境
 
-- 需要：Node 22、Python 3、ffmpeg、Chromium（Playwright）。第一次运行 `bash pipeline/setup.sh`（下载 Kokoro 模型，约 340 MB）。
+- 需要：Node 22、Python 3.11–3.13（setup.sh 会在 `pipeline/.venv` 建独立环境，系统是 3.14 也没关系）、ffmpeg、Chromium（Playwright）。第一次运行、以及每次 `git pull` 之后运行 `bash pipeline/setup.sh`。
 - 没有 GPU 也能跑，3D 场景会慢一些。
 - 渲染要启动 Chromium。如果沙箱拦住了浏览器，不要绕过沙箱，告诉用户在终端自己运行 `bash pipeline/make.sh episodes/<id>`。
 

@@ -7,3 +7,6 @@ episodes/*/*.mp4
 episodes/_weekly/*.tmp
 experiments/*/build/*
 !experiments/*/build/timeline.json
+pipeline/formats/*/example/build/
+pipeline/formats/*/example/*.mp4
+pipeline/.venv/
