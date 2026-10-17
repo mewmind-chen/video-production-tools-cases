@@ -24,6 +24,12 @@ M.impact(Hh.open.slam, 1); M.stab(Hh.open.slam, [57, 60, 64, 69], .9);
 M.stab(Hh.open.bait, [53, 57, 60, 65], .8); M.buzz(Hh.open.bait + .05, .3, .6);
 [0, 1].forEach(i => M.blip(Hh.open.chips + i * .15, 88 + i * 4, .6, -.3 + i * .6));
 
+// ---- 自我介绍：胸牌落定（频道统一的音效）
+M.pad(S.intro, [57, 64, 69], E.intro - S.intro, .55);
+M.glide(S.intro + .05, .5, 76, 64, .5);
+M.softImpact(Hh.intro.land, .8); M.lock(Hh.intro.land + .05, .7);
+M.bloom(Hh.intro.land + .05, [69, 76, 81], .7);
+
 // ---- 律动：从 "ON ALLOCATION" 开始，拆解段改半速，收尾前停下
 const grooveStart = S.alloc, grooveEnd = E.recap;
 for (let t = Math.ceil(grooveStart / BEAT) * BEAT; t < grooveEnd; t += BEAT) {

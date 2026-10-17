@@ -1,5 +1,5 @@
 // Market Pulse 栏目的固定格式：每周三一期，结构和画面固定，每期只换 episode.json 里的数据和台词。
-// 场景顺序：open（钩子数字）→ ident（栏目片头）→ spot（现货报价）→ contract（合约价）→ street（市场声音）→ actions（本周行动）→ outro。
+// 场景顺序：open（钩子数字）→ intro（LEO 胸牌自我介绍，频道统一）→ spot（现货报价）→ contract（合约价）→ street（市场声音）→ actions（本周行动）→ outro。
 // 每个场景读 scene.visual；元素出现的时间用 "line"（第几句台词）和 "at"（这句进行到几成）指定。说明见 FORMAT.md。
 import { createReel, K, F, LAY, W, H, BEAT, clamp, lerp, seg, ease, easeOut, easeIn, easeInOut, expoOut, ioExpo, backOut, hash, TAU, font } from '/pipeline/reel/engine.js';
 import { cues, ORDER } from './cues.mjs';
@@ -13,7 +13,7 @@ export default async function (EP, TL) {
   const V = Object.fromEntries(EP.scenes.map(s => [s.type, s.visual || {}]));
   EP.chapters = [['OPEN', 0, S.spot], ['SPOT', S.spot, S.contract], ['CONTRACT', S.contract, S.street], ['STREET', S.street, S.actions], ['ACTIONS', S.actions, S.outro], ['END', S.outro, C.dur]];
   const R = createReel({ EP, TL });
-  const B = createBrand(R, EP);
+  const B = createBrand(R, EP, TL);
   const { txt, measure, bg, line, circle, rrect, chip, dropWord, hud } = R;
   const ML = LAY.ml, MR = LAY.mr, CW = MR - ML;
   const g = () => R.ctx;
@@ -194,21 +194,11 @@ export default async function (EP, TL) {
     if (t > tRoll + 1.08 && t < tRoll + 1.14) { R.FX.flash = .18; R.FX.flashCol = K.red; }
   }
 
-  // ---------- ident：栏目片头 ----------
-  function sIdent(t) {
-    const v = V.ident, s0 = S.ident, e0 = E.ident;
-    bg(K.lime); grid('rgba(14,15,14,.06)', t);
-    chip(`${EP.week || ''} · ${EP.date || ''}`, ML, 420, { k: seg(t, s0 + .2, s0 + .5), bg: K.ink, fg: K.lime, font: font(F.mono, 24, 700), ls: 3, h: 52 });
-    const kE = seg(t, s0 + .05, s0 + 1.0);
-    ecg(-20, W + 20, 760, 250, kE, K.ink, 9, .5);
-    // 尖峰处的扩散环
-    const tb = s0 + .55;
-    for (let i = 0; i < 3; i++) { const p = seg(t, tb + i * .12, tb + i * .12 + .9); if (p > 0 && p < 1) circle(W / 2, 760 - 250, 30 + p * 260, { stroke: K.ink, lw: 4 * (1 - p), a: 1 - p }); }
-    title('MARKET', 1040, t, s0 + .6, { col: K.ink, size: 250 });
-    title('PULSE.', 1270, t, s0 + .8, { col: K.ink, size: 250, dot: K.red });
-    txt(v.tagline || '', ML, 1350, { font: font(F.mono, 25, 700), fill: K.ink, ls: 3, a: seg(t, s0 + 1.3, s0 + 1.7) });
-    HUD(t, false, 1 - seg(t, e0 - .3, e0));
-    R.FX.grain = .04; R.FX.vign = .2;
+  // ---------- intro：LEO 的胸牌甩进来（频道固定的自我介绍），下方是本栏目的心电图 ----------
+  function sIntro(t) {
+    const e0 = E.intro;
+    B.intro(t, S.intro, e0, { after: (t, k) => ecg(-20, W + 20, 1395, 60, seg(t, S.intro + .6, S.intro + 1.6), K.lime, 4, .5, false) });
+    R.FX.grain = .05; R.FX.vign = .4;
   }
 
   // ---------- spot：现货报价，只画报道过的点，不画连续曲线 ----------
@@ -413,10 +403,10 @@ export default async function (EP, TL) {
     const fade = seg(t, e0 - .5, e0); if (fade > 0) { const c = g(); c.save(); c.fillStyle = `rgba(0,0,0,${fade})`; c.fillRect(0, 0, W, H); c.restore(); }
   }
 
-  const FN = { open: sOpen, ident: sIdent, spot: sSpot, contract: sContract, street: sStreet, actions: sActions, outro: sOutro };
+  const FN = { open: sOpen, intro: sIntro, spot: sSpot, contract: sContract, street: sStreet, actions: sActions, outro: sOutro };
   const scenes = EP.scenes.map(s => [S[s.type], FN[s.type], s.type]);
   R.run(scenes, {
-    ident: [.5, R.trWipe(K.ink)],
+    intro: [.5, R.trWipe(K.lime)],
     spot: [.55, R.trIris(W / 2, 760, K.ink)],
     contract: [.5, R.trPush(0, 1)],
     street: [.55, R.trSlats(8)],

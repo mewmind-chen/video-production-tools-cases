@@ -24,6 +24,15 @@
       "fx": "tapeMacro"
     },
     {
+      "type": "intro",
+      "lines": [
+        {
+          "text": "I'm Leo. I trade components in Shenzhen. This is Buyer's Playbook.",
+          "say": "I'm Leo. I trade components in Shenzhen. This is Buyer's Playbook."
+        }
+      ]
+    },
+    {
       "type": "headline",
       "source": "TrendForce MLCC Market Bulletin, Aug 12, 2026",
       "visual": {
@@ -168,7 +177,7 @@
         "note": "AI-generated voice and visuals."
       },
       "lines": [
-        "Follow for weekly signals from China's electronics supply chain."
+        "Buyer's Playbook. Every Friday. Sources in the caption."
       ],
       "hold": 1.6,
       "fx": "turntable"

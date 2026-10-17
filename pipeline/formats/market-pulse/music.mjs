@@ -30,10 +30,11 @@ M.impact(tRoll + 1.1, 1); M.stab(tRoll + 1.1, [62, 65, 69, 74], .9);
 M.pop(tRoll + 1.3, .8);
 (o.after || []).forEach((_, i) => { M.kick(at('open', 1, 0) + .15 + i * .55, .7); M.blip(at('open', 1, 0) + .2 + i * .55, 81 + i * 5, .6); });
 
-// ---- ident：声音标识
-heartbeat(S.ident + .5, 1);
-M.bloom(S.ident + .55, [62, 69, 74, 77], .9);
-M.tick(S.ident + .2, .6);
+// ---- intro：胸牌落定时是栏目的声音标识（心跳）
+M.glide(S.intro + .05, .5, 74, 62, .5);
+heartbeat(S.intro + .55, 1);
+M.bloom(S.intro + .6, [62, 69, 74, 77], .9);
+M.tick(S.intro + .9, .5); M.tick(S.intro + 1.25, .4);
 
 // ---- 律动：从现货段开始，片尾前收住；市场声音段半速，"降温"一句前留出近乎静音的半拍
 const tQuiet = at('contract', V.contract.quoteLine ?? 3, 0);

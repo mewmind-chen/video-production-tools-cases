@@ -1,6 +1,6 @@
 // 本期时间表：画面（reel.js）和配乐（music.mjs）都从这里取时间，保证每个动作落在同一帧。
 // 场景起点和每句台词的起点来自配音生成的 timeline.json，其余命中点相对它们定义。
-export const KEYS = ['open', 'alloc', 'ddr5', 'photo', 'datecode', 'label', 'paper', 'teardown', 'recap', 'end'];
+export const KEYS = ['open', 'intro', 'alloc', 'ddr5', 'photo', 'datecode', 'label', 'paper', 'teardown', 'recap', 'end'];
 
 export function cues(TL) {
   const S = {}, E = {}, L = {};
@@ -10,6 +10,7 @@ export function cues(TL) {
   });
   const hits = {
     open: { dot: S.open + .05, bubble: L.open[0], text: L.open[0] + .7, slam: L.open[1], bait: L.open[1] + .75, chips: L.open[1] + 1.7 },
+    intro: { land: S.intro + .55 },
     alloc: { head: S.alloc + .08, tape: S.alloc + .35, empties: [0, 1, 2, 3, 4, 5].map(i => L.alloc[0] + 1.2 + i * .5), source: L.alloc[1] + .2 },
     ddr5: { head: S.ddr5 + .08, boxes: S.ddr5 + .5, fill: S.ddr5 + 2.4, count: S.ddr5 + 4.4 },
     photo: { head: S.photo + .08, finder: S.photo + .9, note: S.photo + 1.7, shutter: S.photo + 3.2, tag: L.photo[1] },

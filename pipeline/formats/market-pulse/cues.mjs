@@ -1,6 +1,6 @@
 // Market Pulse 的时间表：画面（format.js）和配乐（music.mjs）共用。
 // 场景按 type 取（每期每种场景只出现一次），每句台词的起止来自配音生成的 timeline.json。
-export const ORDER = ['open', 'ident', 'spot', 'contract', 'street', 'actions', 'outro'];
+export const ORDER = ['open', 'intro', 'spot', 'contract', 'street', 'actions', 'outro'];
 
 export function cues(EP, TL) {
   const S = {}, E = {}, L = {}, LE = {};

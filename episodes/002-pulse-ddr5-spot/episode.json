@@ -65,14 +65,11 @@
       ]
     },
     {
-      "type": "ident",
-      "visual": {
-        "tagline": "WHAT CHINA'S PARTS MARKET IS SAYING"
-      },
+      "type": "intro",
       "lines": [
         {
-          "text": "This is Market Pulse: what Shenzhen is telling buyers this week.",
-          "say": "This is Market Pulse. What Shenzhen is telling buyers, this week."
+          "text": "I'm Leo. I trade components in Shenzhen. This is Market Pulse.",
+          "say": "I'm Leo. I trade components in Shenzhen. This is Market Pulse."
         }
       ]
     },

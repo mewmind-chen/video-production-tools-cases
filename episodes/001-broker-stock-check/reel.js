@@ -11,7 +11,7 @@ export default async function (EP, TL) {
   const R = createReel({ EP, TL });
   const { txt, letters, measure, bg, line, circle, rrect, starburst, asterisk, arrowNE, arrow, chip, odometer, tape, dropWord, stackWord, glitchIn, redacted, thread, barcode, glShot, mark, hud, terrain, RECT } = R;
   const mlcc = createMLCC(R);
-  const B = createBrand(R, EP);
+  const B = createBrand(R, EP, TL);
   const ML = LAY.ml, MR = LAY.mr, CW = MR - ML;
 
   // 自适应字号：在最大宽度内取最大字号
@@ -145,6 +145,9 @@ export default async function (EP, TL) {
     RECT.openChip = [ML, 1373, w1, 54];
     B.hud(t, { tl: HUD_TL, bl: sec(0, 'OPEN'), br: 'MLCC · 0805 · RENDERED IN CODE', k: ease(seg(lt, .1, .6)) });
   }
+
+  // 频道统一的自我介绍：LEO 的胸牌（pipeline/reel/brand.js）
+  function sIntro(t) { B.intro(t, S.intro, E.intro); R.FX.grain = .05; R.FX.vign = .4; }
 
   function sAlloc(t) {
     bg(K.lime); const lt = t - S.alloc, h = Hh.alloc;
@@ -339,9 +342,10 @@ export default async function (EP, TL) {
     if (t > h.dot) { const k = seg(t, h.dot, h.dot + .25); bg(K.ink); circle(W / 2, H / 2, lerp(60, 4, easeIn(k)) * (1 - seg(t, C.dur - .2, C.dur)), { fill: K.lime }); R.FX.slice = 0; R.FX.split = 0; }
   }
 
-  const SCENES = [[S.open, sOpen, 'open'], [S.alloc, sAlloc, 'alloc'], [S.ddr5, sDdr5, 'ddr5'], [S.photo, sPhoto, 'photo'], [S.datecode, sDateCode, 'datecode'],
+  const SCENES = [[S.open, sOpen, 'open'], [S.intro, sIntro, 'intro'], [S.alloc, sAlloc, 'alloc'], [S.ddr5, sDdr5, 'ddr5'], [S.photo, sPhoto, 'photo'], [S.datecode, sDateCode, 'datecode'],
     [S.label, sLabel, 'label'], [S.paper, sPaper, 'paper'], [S.teardown, sTeardown, 'teardown'], [S.recap, sRecap, 'recap'], [S.end, sEnd, 'end']];
   const TR = {
+    intro: [.5, R.trWipe(K.lime)],
     alloc: [.55, (k, A, B, g) => R.trIris(RECT.openChip ? RECT.openChip[0] + RECT.openChip[2] / 2 : W / 2, 1400, K.ink)(k, A, B, g)],
     ddr5: [.5, R.trPush(0, 1)],
     datecode: [.55, R.trZoom(() => RECT.polaroid || [120, 800, 840, 600])],

@@ -220,12 +220,16 @@ export function createReel({ EP, TL }) {
   // ---------- 字幕 + AI 主播（每帧最后画在主画布上）----------
   const hostCanvas = document.createElement('canvas'); hostCanvas.width = hostCanvas.height = 340;
   const host = initHost(hostCanvas, TL);
+  let hostFn = null;
   function subtitle(t) {
     const sub = TL.subs.find(l => t >= l.start && t <= l.end + .12);
-    host(t);
     const g = mainCtx;
-    g.drawImage(hostCanvas, 60, LAY.subY - 18, 150, 150);
-    g.save(); g.font = font(F.mono, 18, 700); g.letterSpacing = '4px'; g.fillStyle = K.lime; g.textAlign = 'center'; g.fillText('AI VOICE', 135, LAY.subY + 150); g.restore();
+    if (hostFn) { ctx = mainCtx; ctx.save(); hostFn(t); ctx.restore(); }   // 频道人设（pipeline/reel/brand.js）替换默认光球
+    else {
+      host(t);
+      g.drawImage(hostCanvas, 60, LAY.subY - 18, 150, 150);
+      g.save(); g.font = font(F.mono, 18, 700); g.letterSpacing = '4px'; g.fillStyle = K.lime; g.textAlign = 'center'; g.fillText('AI VOICE', 135, LAY.subY + 150); g.restore();
+    }
     if (!sub) return;
     g.save(); g.font = font(F.sans, 46, 700); g.letterSpacing = '0px';
     const w = Math.min(g.measureText(sub.text).width, 760) + 56, x = 232, y = LAY.subY + 4;
@@ -292,6 +296,7 @@ export function createReel({ EP, TL }) {
     txt, letters, measure, bg, line, circle, rrect, starburst, asterisk, arrowNE, arrow, chip, odometer, tape, dropWord, stackWord, glitchIn,
     redacted, thread, barcode, glShot, mark, hud, terrain, tc,
     trIris, trZoom, trPush, trWipe, trSlats, trGrid,
+    setHost(fn) { hostFn = fn; },
     run(scenes, tr) {
       SCENES = scenes; TR = tr;
       window.renderAt = t => frame(t);
