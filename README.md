@@ -1,6 +1,6 @@
 # "AI 解决真实工作问题"竖屏短视频：制作工具与真实案例深度调研
 
-> 调研日期：2026-10-16 ｜ 目标读者：中文竖屏短视频（9:16，抖音类平台）内容创作者
+> 调研日期：2026-10-16（2026-10-19 增补 Hypit 源码实测与案例归档） ｜ 目标读者：中文竖屏短视频（9:16，抖音类平台）内容创作者
 > 结构：重点章节（Claude Opus 5.5 写代码做视频）＋ 工具总览表 ＋ 案例清单 ＋ 3 条行动建议
 > 标注说明：【大陆直用】= 中国大陆无需翻墙可直接使用；【需翻墙】= 需境外网络/支付；价格为 2026 年 10 月公开口径，平台调价频繁，下单前请以官网为准。
 
@@ -34,6 +34,7 @@ Opus 5.5 连一张图都画不出来。它的工作方式是（据"AI范儿" 202
 
 | 工具 | 一句话评价 | 价格 | 大陆直用 |
 |---|---|---|---|
+| **Hypit**（hypit-ai/hypit）| **23.8k Stars 爆款复刻与语义视频系统**：自创 SVML/SVS 语言，把动效/B-roll/卡拉 OK 字幕锚定在台词“词”上（WhisperX 对齐）而非秒上；支持 Seedance/GPT Image 生成素材 + 64 进程无头 Chromium 并发渲染，改词自动重排时间轴 | 引擎开源免费；生成 A/B-roll 按模型 API 计费（20 秒复刻片约 $1.07–$1.15）| 框架与本地渲染是；内置支持火山/即梦/MiniMax 等国产接口 |
 | **HyperFrames**（HeyGen 开源）| "Write HTML. Render video."，11 个 agent skills，GSAP/Anime.js/Lottie/Three.js/WAAPI 全支持，`npx hyperframes init/preview/render` 三步出片，支持 1080×1920 竖屏 | 开源免费；TTS/转写等需 HeyGen 账号 | 框架本身是，但驱动它的 Claude Code 需翻墙 |
 | **Remotion** | React/TS 写视频，信息图表/字幕讲解最强，`@remotion/captions` 字幕生态成熟，studio 实时预览 | 个人/非营利/≤3人团队免费；大公司按席位收费 | 是（npm 开源） |
 | **Manim**（Python）| 3Blue1Brown 御用，数学/算法可视化天花板，公式变形无人能及 | 开源免费 | 是 |
@@ -46,6 +47,7 @@ Opus 5.5 连一张图都画不出来。它的工作方式是（据"AI范儿" 202
 
 | 仓库 | 收录内容 | 一句话评价 | 链接 |
 |---|---|---|---|
+| **hypit-ai/hypit** | **SVML 语义视频标记语言＋86 个内置模块包＋7 套完整工程**（含 137 秒中文科普片、足球 Tier List、播客、街头采访）；`npx skills add hypit-ai/hypit -g` 一键装入 Claude Code/Codex | **爆款克隆与批量变体天花板**：把“AI 生视频/配音”与“HTML 组件动效”用词级锚定（`@{cue}`）焊死，一份工作流一键出 100 个变体（本库已归档源码见 `examples/hypit-samples/`）| https://github.com/hypit-ai/hypit |
 | **lemomo-ai/lemo-opuscar** | 43 种影片风格，每种配一支纯代码样片＋风格提示词＋导演/技术指南；Claude Code plugin 一键安装；代表作 OPUSCAR 98（6 分 31 秒，98 部奥斯卡最佳影片纯代码重绘）| "选风格、带故事，让 agent 当导演"，知识类创作者的**风格字典**，中英双语 | https://github.com/lemomo-ai/lemo-opuscar |
 | **yihui-dev/awesome-opus5-5-videos** | 513 个病毒视频＋背后 prompts，Skillry 站可左右对比原片与复刻 | **抄作业第一站**：每个案例都链回原帖，直接复制 prompt 改主题即用 | https://github.com/yihui-dev/awesome-opus5-5-videos |
 | **zhuyansen/awesome-opus-5.5-video** | 1697 个作品（Opus 5.5 占 1584），入选门槛原帖 5000+ 播放，435 个带 prompt，中英双语，按动效/UI/广告/科普/叙事/3D/游戏/音乐分类 | 分类最细的案例库，找"科普讲解"类直接看 Explainers 分区 | https://github.com/zhuyansen/awesome-opus-5.5-video |
@@ -53,7 +55,20 @@ Opus 5.5 连一张图都画不出来。它的工作方式是（据"AI范儿" 202
 | **zhuyansen/awesome-claude-video-skills** | 290 个视频 skills 索引，每个做安全评级，实测 16 个端到端；结论：简单 promo 不用 skill 也行，skill 的价值在"风格+工作流" | 选型指南：先看它的实测排名再装，避免 skill 泛滥 | https://github.com/zhuyansen/awesome-claude-video-skills |
 | **ismoshushi/awesome-opus-video-skills** | 110 个 skills 索引，分 code-to-video / 产品视频 / 剪辑 / 外部视频模型调用四类 | 一句话点破本质：Opus 5.5 不渲染像素，它写渲染代码 | https://github.com/ismoshushi/awesome-opus-video-skills |
 
-安装方式（通用）：`npx skills add heygen-com/hyperframes`，或 `claude plugin marketplace add lemomo-ai/lemo-opuscar` 后 `claude plugin install lemo-opuscar@lemolab`。
+安装方式（通用）：`npx skills add hypit-ai/hypit -g`、`npx skills add heygen-com/hyperframes`，或 `claude plugin marketplace add lemomo-ai/lemo-opuscar` 后 `claude plugin install lemo-opuscar@lemolab`。
+
+### 1.5 专项拆解：Hypit（hypit-ai/hypit）为什么能解决“纯写 HTML 视频”的痛点？
+
+> 详细源码级拆解见 [`notes/source-04-hypit.md`](notes/source-04-hypit.md)，官方示例源码与 Skill 归档见 [`examples/hypit-samples/`](examples/hypit-samples/)。
+
+在 Hypit 官方中文科普工程（[`examples/hypit-samples/complex-explainer/authors/script.svml`](examples/hypit-samples/complex-explainer/authors/script.svml)）中，一针见血地指出了当前 AI 做视频的两条死胡同：
+- **死胡同 A（让 AI 操作剪映/PR 时间轴）**：贴素材可以，做动效要在时间轴标几十个关键帧，狂烧几十万 Token 且样式死板。
+- **死胡同 B（让 AI 直接写几千行 Remotion / HTML）**：动效虽强，但**每条视频只能用一次**；换个产品或改句台词，配音时长一变，AI 就得把几千行 HTML 和所有秒数时间戳重新抄写重算一遍。
+
+**Hypit 的核心解法（三层 DSL + DAG 增量编译）**：
+1. **词级语义锚定（`.svml`）**：把剧本本身当作时间线，用 `||` 控制字幕断句，用 `<显示词|发音词>`（如 `<claude|cloud>`）修正 TTS 读音，用 `@{event!}` 或 `@{id}...@{/id}` 将 B-roll 弹出、榜单掉落、音效直接绑在台词词组上，由 `@hypit/whisperx` 自动算出帧级时间窗口。**改台词或翻译多语言，时间轴自动重排，一行时间代码不用改。**
+2. **样式与组件解耦（`.svs` + Author Packages）**：把卡拉 OK 逐词高亮字幕、S-D 级排行榜、弹窗卡片做成可复用组件，通过类似 CSS 的 `.svs` 配方表调参。
+3. **生成与渲染混合管线（`.svrun`）**：A-roll 口播（Seedance 2 Mini）与 B-roll 配图（GPT Image 2）走 API 生成并本地缓存，画面合成与动效走 64 进程无头 Chromium 并发渲染。单条 20 秒爆款复刻（含 3 个变体）实测 API 总成本仅 **$1.07–$1.15**。
 
 ### 1.4 给竖屏创作者的关键提示
 
@@ -176,7 +191,8 @@ Opus 5.5 连一张图都画不出来。它的工作方式是（据"AI范儿" 202
 
 ## 六、来源清单
 
-**Opus 5.5 专项**
+**Opus 5.5 与代码/语义视频专项**
+- https://github.com/hypit-ai/hypit（Hypit 官方仓库，SVML 语义视频语言与爆款复刻系统；官网 https://hypit.ai）
 - https://www.163.com/dy/article/L7NE1UAF0556703U.html（"AI范儿" 2026-09-26，Opus 5.5 视频现象深度拆解，含 HyperFrames 竖屏实战）
 - https://github.com/lemomo-ai/lemo-opuscar（43 种纯代码影片风格＋OPUSCAR 98）
 - https://github.com/yihui-dev/awesome-opus5-5-videos（513 病毒视频＋prompts）
@@ -203,4 +219,4 @@ Opus 5.5 连一张图都画不出来。它的工作方式是（据"AI范儿" 202
 - https://dev.to/stimlau/best-ai-video-generator-for-marketing-in-2026-7-tools-tested-157c（HeyGen/invideo 横评）
 - https://github.com/weihaoqu/learnaidoc/blob/HEAD/_wiki/teaching-videos-manim-remotion.md（Manim vs Remotion 选型）
 
-*工作笔记见 notes/source-01-video-gen.md、notes/source-02-edit-code-tts.md、notes/source-03-opus55.md。全部事实为 2026-10-16 经网页索引（index）核验，未做真机实测（verified live）；价格类信息请以下单页为准。*
+*工作笔记见 `notes/source-01-video-gen.md`、`notes/source-02-edit-code-tts.md`、`notes/source-03-opus55.md`、`notes/source-04-hypit.md`；Hypit 关键示例与 Skill 源码归档见 `examples/hypit-samples/`。2026-10-16 内容经网页索引（index）核验，2026-10-19 新增的 Hypit 章节经 GitHub 源码克隆与文件实测核验；价格类信息请以下单页为准。*
