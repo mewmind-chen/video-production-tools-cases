@@ -1,0 +1,37 @@
+[
+ {"id":"title","imgs":["i048"],"hold":4.5,"lines":[]},
+ {"id":"intro","imgs":["i015"],"pip":true,"tag":"Hello!","lines":[
+  ["Hello, everyone!","大家好！"],
+  ["My name is Jonathan.","我叫 Jonathan。"],
+  ["I am a little host of Shenzhen.","我是深圳小主人。"],
+  ["Welcome to Shenzhen for APEC!","欢迎来深圳参加 APEC！"],
+  ["Today, let me show you the tallest building in Shenzhen.","今天，我带大家看看深圳最高的楼。"]]},
+ {"id":"meet","imgs":["i005","i017"],"tag":"Ping An Finance Center","tagzh":"平安金融中心","lines":[
+  ["This is Ping An Finance Center.","这就是平安金融中心——平安大厦。"],
+  ["It is in Futian, in the heart of Shenzhen.","它在福田，就在深圳的市中心。"],
+  ["Ping An means safe and peaceful in Chinese.","“平安”在中文里是平平安安的意思。"]]},
+ {"id":"tall","imgs":["i008"],"counter":true,"tag":"How tall?","tagzh":"有多高？","lines":[
+  ["How tall is it?","它有多高呢？"],
+  ["It is five hundred and ninety-nine meters tall!","它有 599 米高！"],
+  ["It has one hundred and fifteen floors.","它有 115 层。"],
+  ["Wow, that is so, so tall!","哇，真的好高好高！"]]},
+ {"id":"rocket","imgs":["i003","i002"],"rocket":true,"tag":"Look up!","tagzh":"抬头看！","lines":[
+  ["Look up! It is shiny and silver.","抬头看！它亮晶晶的，是银色的。"],
+  ["It looks like a giant rocket, ready to fly into the sky!","它像一枚大火箭，准备飞上天空！"]]},
+ {"id":"sky","imgs":["i012","i043","i045"],"tag":"Sky Deck","tagzh":"云际观光层","lines":[
+  ["We can take a super fast elevator to the top.","我们可以坐超快的电梯到楼顶。"],
+  ["From the sky deck, I can see the whole city.","在观光层，我能看到整座城市。"],
+  ["The cars look like tiny toys!","汽车看起来像小玩具一样！"]]},
+ {"id":"night","imgs":["i011","i050"],"stars":true,"tag":"Shenzhen at Night","tagzh":"深圳之夜","lines":[
+  ["At night, Shenzhen lights up.","到了晚上，深圳亮起来了。"],
+  ["The buildings shine like stars.","大楼像星星一样闪闪发光。"]]},
+ {"id":"city","imgs":["i014","i064"],"tag":"My Shenzhen","tagzh":"我的深圳","lines":[
+  ["Shenzhen is a young city.","深圳是一座年轻的城市。"],
+  ["It is green, it is smart, and it is full of technology.","它很绿色，很智慧，充满了科技。"],
+  ["My city is growing fast, just like me!","我的城市长得很快，就像我一样！"]]},
+ {"id":"end","imgs":["i024"],"pip":true,"confetti":true,"tag":"Welcome!","lines":[
+  ["Friends from APEC, welcome to Shenzhen!","APEC 的朋友们，欢迎来深圳！"],
+  ["Come and see the tallest building with me!","快来和我一起看最高的楼吧！"],
+  ["Thank you! Bye-bye!","谢谢大家！再见！"]]},
+ {"id":"credits","imgs":[],"hold":6,"lines":[]}
+]
